@@ -2,9 +2,9 @@
 #define MATRIX_H
 template <int rows, int cols>
 class Matrix {
-public:
+private:
   int data[rows][cols];
-
+public:
   Matrix(int (*arr)[cols]) {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
