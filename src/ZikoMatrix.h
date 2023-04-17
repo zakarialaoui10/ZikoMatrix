@@ -1,5 +1,11 @@
 #ifndef MATRIX_H
 #define MATRIX_H
+#if defined(ARDUINO)
+#include <Arduino.h>
+#else
+#include <iostream>
+#endif
+
 template <int rows, int cols>
 class Matrix {
 private:
@@ -22,7 +28,9 @@ public:
   const int& operator()(int row, int col) const {
     return data[row][col];
   }
-
+  Matrix<rows, cols>& operator+(const Matrix<rows, cols>& other){
+      
+  }
   Matrix<rows, cols>& operator+=(const Matrix<rows, cols>& other) {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
@@ -39,6 +47,24 @@ public:
       }
     }
     return *this;
+  }
+  void print() const {
+#if defined(ARDUINO)
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        Serial.print(data[i][j]);
+        Serial.print(' ');
+      }
+      Serial.println();
+    }
+#else
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        std::cout << data[i][j] << ' ';
+      }
+      std::cout << '\n';
+    }
+#endif
   }
 };
 #endif // MATRIX_H
