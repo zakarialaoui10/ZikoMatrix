@@ -1,9 +1,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-#if defined(ARDUINO)#include <Arduino.h>
-
-#else#include <iostream>
-
+#if defined(ARDUINO) #include <Arduino.h>
+#else #include <iostream>
 #endif
 
 template < int rows, int cols >
