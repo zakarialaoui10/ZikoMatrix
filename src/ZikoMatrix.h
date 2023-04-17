@@ -18,6 +18,10 @@ public:
       }
     }
   }
+  Matrix<rows, cols> clone() const {
+    Matrix<rows, cols> result = *this;
+    return result;
+  }
   int* operator[](int i) {
     return data[i];
   }
@@ -28,9 +32,11 @@ public:
   const int& operator()(int row, int col) const {
     return data[row][col];
   }
-  Matrix<rows, cols>& operator+(const Matrix<rows, cols>& other){
-      
-  }
+  Matrix<rows, cols> operator+(const Matrix<rows, cols>& other) const {
+      Matrix<rows, cols> result = this->clone();
+      result += other;
+      return result;
+}
   Matrix<rows, cols>& operator+=(const Matrix<rows, cols>& other) {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
