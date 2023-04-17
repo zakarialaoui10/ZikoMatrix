@@ -1,34 +1,44 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-template<typename T>
+template <int rows, int cols>
 class Matrix {
 public:
-    int rows;
-    int cols;
-    T** data;
+  int data[rows][cols];
 
-public:
-    Matrix(int r, int c) {
-        rows = r;
-        cols = c;
-        data = new T*[rows];
-        for(int i = 0; i < rows; i++) {
-            data[i] = new T[cols];
-            for(int j = 0; j < cols; j++) {
-                data[i][j] = T();
-            }
-        }
+  Matrix(int (*arr)[cols]) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        data[i][j] = arr[i][j];
+      }
     }
+  }
+  int* operator[](int i) {
+    return data[i];
+  }
+  int& operator()(int row, int col) {
+    return data[row][col];
+  }
 
-    // Getter for accessing individual elements
-    T& operator()(int i, int j) {
-        return data[i][j];
+  const int& operator()(int row, int col) const {
+    return data[row][col];
+  }
+
+  Matrix<rows, cols>& operator+=(const Matrix<rows, cols>& other) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        data[i][j] += other.data[i][j];
+      }
     }
-    // Setter for modifying individual elements
-    void set(int i, int j, T value) {
-        data[i][j] = value;
+    return *this;
+  }
+
+  Matrix<rows, cols>& operator-=(const Matrix<rows, cols>& other) {
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        data[i][j] -= other.data[i][j];
+      }
     }
-    // rest of the Matrix class implementation...
+    return *this;
+  }
 };
-
-#endif
+#endif // MATRIX_H
