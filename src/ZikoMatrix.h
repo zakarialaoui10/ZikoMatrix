@@ -56,16 +56,29 @@ public:
   }
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
-    result += other;
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result.data[i][j] += other.data[i][j];
+      }
+    }
     return result;
   }
-
+  Matrix< rows, cols ,T > operator-(const Matrix<rows, cols , T >& other) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result.data[i][j] -= other.data[i][j];
+      }
+    }
+    return result;
+  }
+/*
   Matrix< rows, cols , T > operator-(const Matrix< rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
     result -= other;
     return result;
   }
-
+*/
   Matrix< rows, cols , T >& operator+=(const Matrix< rows, cols , T >& other) {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
@@ -83,20 +96,6 @@ public:
     }
     return *this;
   }
-  /*
-  Matrix<rows, cols , T>& operator*=(const Matrix<T, cols, rows>& other) {
-    Matrix<T, rows, rows> result;
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < rows; j++) {
-        for (int k = 0; k < cols; k++) {
-          result(i, j) += data[i][k] * other(k, j);
-        }
-      }
-    }
-    *this = result;
-    return *this;
-  }
-*/
   void print() const {
 #if defined(ARDUINO)
     for (int i = 0; i < rows; i++) {
