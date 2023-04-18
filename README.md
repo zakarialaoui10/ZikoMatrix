@@ -11,3 +11,10 @@
 ``` C++
   M1.print();
 ```
+
+## Static methodes 
+``` C++
+  int r=2,c=3;
+  Matrix<2, 2> z = Matrix<3, 3>::zeros();
+  Matrix<2, 2> o = Matrix<3, 3>::ones();
+```
