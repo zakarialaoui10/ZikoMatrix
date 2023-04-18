@@ -10,7 +10,7 @@
 template <typename T, int rows, int cols>
 class Matrix {
 private:
-  T data[rows][cols];
+  T data[rows][cols]={};
 public:
   Matrix(T (*arr)[cols]) {
     for (int i = 0; i < rows; i++) {
@@ -27,7 +27,6 @@ public:
       }
     }
   }
-
   Matrix< T, rows, cols > clone() const {
     Matrix< T, rows, cols > result = *this;
     return result;
@@ -44,7 +43,6 @@ public:
   const T& operator()(int row, int col) const {
     return data[row][col];
   }
-
   Matrix< T, rows, cols > operator+(const Matrix< T, rows, cols >& other) const {
     Matrix< T, rows, cols > result = this->clone();
     result += other;
