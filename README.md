@@ -12,7 +12,7 @@
   M1.print();
 ```
 
-## Static methodes 
+## Static Methodes 
 ``` C++
   int r=2,c=3;
   Matrix<2, 2> z = Matrix<3, 3>::zeros();
