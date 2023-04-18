@@ -41,6 +41,15 @@ public:
   const T& operator()(int row, int col) const {
     return data[row][col];
   }
+   static Matrix<rows,cols>id(){
+       int arr[rows][cols] = {};
+       for (int i = 0; i < rows; i++) {
+           for (int j = 0; j < cols; j++) {
+               arr[i][j] = (i == j) ? 1 : 0;
+           }
+       }
+       return Matrix<rows, cols , T>(arr);
+   }
    static Matrix<rows, cols,T> zeros() {
     T arr[rows][cols] = {};
     return Matrix<rows, cols , T>(arr);
