@@ -7,7 +7,7 @@
  int arr[] = {1, 2, 3 , 4, 5, 6};
  Matrix<2,3> M2(arr);
 ```
-## print to the terminal 
+## Print to the terminal 
 ``` C++
   M1.print();
 ```
