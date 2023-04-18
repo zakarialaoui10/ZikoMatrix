@@ -72,28 +72,12 @@ public:
     }
     return result;
   }
-/*
-  Matrix< rows, cols , T > operator-(const Matrix< rows, cols , T >& other) const {
-    Matrix< rows, cols , T > result = this->clone();
-    result -= other;
-    return result;
-  }
-*/
   Matrix< rows, cols , T >& operator+=(const Matrix< rows, cols , T >& other) {
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
-        data[i][j] += other.data[i][j];
-      }
-    }
+    *this = *this + other;
     return *this;
   }
-
   Matrix< rows, cols , T >& operator-=(const Matrix< rows, cols , T >& other) {
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
-        data[i][j] -= other.data[i][j];
-      }
-    }
+    *this = *this - other;
     return *this;
   }
   void print() const {
