@@ -74,6 +74,19 @@ public:
     }
     return *this;
   }
+/* Matrix<T,rows, cols>& operator*=(const Matrix<T,rows, cols>& other) {
+  Matrix<T,rows, cols> result = Matrix<T,rows, cols>
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+      for (int k = 0; k < cols; k++) {
+        result(i, j) += data[i][k] * other(k, j);
+      }
+    }
+  }
+  *this = result;
+  return *this;
+}
+*/
 
   void print() const {
 #if defined(ARDUINO)
