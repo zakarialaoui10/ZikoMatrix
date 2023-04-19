@@ -27,6 +27,9 @@ public:
       }
     }
   }
+  ~Matrix<rows,cols,T>() {
+    
+  }
   Matrix<rows, cols , T> clone() const {
     Matrix< rows, cols , T > result = *this;
     return result;
@@ -63,6 +66,16 @@ public:
     }
     return Matrix<rows, cols , T>(arr);
   }
+  /*void transpose() {
+      T temp[cols][rows];
+    for (int i = 0; i < rows; i++) {
+      for (int j = i + 1; j < cols; j++) {
+          temp[i][j]=data[j][i];
+      }
+    }
+    delete data[rows][cols];
+    T data[cols][rows]=temp;
+  }*/
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
     for (int i = 0; i < rows; i++) {
