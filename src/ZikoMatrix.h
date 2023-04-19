@@ -7,7 +7,7 @@
 #include <iostream>
 #endif
 
-template <int rows = 0, int cols = 0 , typename T=int>
+template <int rows = 0, int cols = rows , typename T=int>
 class Matrix {
 private:
   T data[rows][cols]={};
@@ -42,13 +42,13 @@ public:
     return data[row][col];
   }
    static Matrix<rows,cols>id(){
-       int arr[rows][cols] = {};
+       int arr[rows][rows] = {};
        for (int i = 0; i < rows; i++) {
-           for (int j = 0; j < cols; j++) {
+           for (int j = 0; j < rows; j++) {
                arr[i][j] = (i == j) ? 1 : 0;
            }
        }
-       return Matrix<rows, cols , T>(arr);
+       return Matrix<rows, rows , T>(arr);
    }
    static Matrix<rows, cols,T> zeros() {
     T arr[rows][cols] = {};
