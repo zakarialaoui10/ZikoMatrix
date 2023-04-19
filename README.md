@@ -17,6 +17,7 @@
   int r=2,c=3;
   Matrix<2, 2> z = Matrix<3, 3>::zeros();
   Matrix<2, 2> o = Matrix<3, 3>::ones();
+  Matrix<3> Id = Matrix<3>::id();
 ```
 ## Operators
 ``` C++
