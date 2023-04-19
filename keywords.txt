@@ -1,3 +1,4 @@
 Matrix KEYWORD1
 zeros KEYWORD2
 ones KEYWORD2
+print KEYWORD2
