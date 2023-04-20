@@ -104,21 +104,17 @@ class Matrix {
     return *this;
   }
   bool isSquare(){
-      return _rows==_cols;
+      return rows==cols;
   }
-  int size(){
-     return _rows*_cols;
-  }
-  void reshape(int new_rows, int new_cols) {
-        // Check if the new dimensions are valid
-        if (new_rows * new_cols != _rows * _cols) {
-            throw std::invalid_argument("Cannot reshape matrix to new dimensions.");
-        }
+  bool reshape(int new_rows, int new_cols) {
+        if (new_rows * new_cols != _rows * _cols)return false;
         // Copy data to temporary array
         T temp[_rows][_cols];
-        for (int i = 0; i < _rows; i++)
-            for (int j = 0; j < _cols; j++)
+        for (int i = 0; i < _rows; i++) {
+            for (int j = 0; j < _cols; j++) {
                 temp[i][j] = data[i][j];
+            }
+        }
         // Fill new matrix with data from temporary array
         int count = 0;
         for (int i = 0; i < new_rows; i++) {
@@ -127,10 +123,10 @@ class Matrix {
                 count++;
             }
         }
-
         // Update member variables
         _rows = new_rows;
         _cols = new_cols;
+        return true;
     }
   void print() const {
       #if defined(ARDUINO)
