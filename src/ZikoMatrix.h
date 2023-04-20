@@ -116,7 +116,6 @@ bool reshape(int new_rows, int new_cols) {
       temp[j][i] = data[i][j];
     }
   }
-  // Copy the transpose matrix back to the original matrix
   for (int i = 0; i < _rows; i++) {
     for (int j = 0; j < _cols; j++) {
       data[i][j] = temp[i][j];
@@ -143,86 +142,33 @@ void slice(int r,int c,int i,int j){}
     }
     return result;
   }
-/*
-    template <int other_cols>
-Matrix<rows, cols + other_cols, T> hstack(const Matrix<rows, other_cols, T>& other) const {
-    Matrix<rows, cols + other_cols, T> result;
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            result(i, j) = (*this)(i, j);
-        }
-        for (int j = 0; j < other_cols; j++) {
-            result(i, cols + j) = other(i, j);
-        }
-    }
-    return result;
-}
-*/
 template<int new_cols>
     void hstack(const Matrix<rows, new_cols, T>& other) {
-        // Create a new matrix with updated number of columns
         Matrix<rows, cols+new_cols, T> result;
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                result.data[i][j] = data[i][j];
-            }
-            for (int j = 0; j < new_cols; j++) {
-                result.data[i][j+cols] = other.data[i][j];
-            }
+            for (int j = 0; j < cols; j++)result.data[i][j] = data[i][j];
+            for (int j = 0; j < new_cols; j++)result.data[i][j+cols] = other.data[i][j];
         }
-
-        // Copy the data back to the original matrix
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols+new_cols; j++) {
+            for (int j = 0; j < cols+new_cols; j++)
                 data[i][j] = result.data[i][j];
-            }
         }
-
-        // Update the number of columns
         _cols += new_cols;
     }
  template<int new_rows>
     void vstack(const Matrix<new_rows, cols, T>& other) {
-        // Create a new matrix with updated number of rows
         Matrix<rows+new_rows, cols, T> result;
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                result.data[i][j] = data[i][j];
-            }
+            for (int j = 0; j < cols; j++)result[i][j] = data[i][j];
         }
         for (int i = 0; i < new_rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                result.data[i+rows][j] = other.data[i][j];
-            }
+            for (int j = 0; j < cols; j++)result[i+rows][j] = other[i][j];
         }
-
-        // Copy the data back to the original matrix
         for (int i = 0; i < rows+new_rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                data[i][j] = result.data[i][j];
-            }
+            for (int j = 0; j < cols; j++)data[i][j] = result[i][j];
         }
-
-        // Update the number of rows
         _rows += new_rows;
     }
-/*
-template <int other_rows>
-Matrix<rows + other_rows, cols, T> vstack(const Matrix<other_rows, cols, T>& other) const {
-    Matrix<rows + other_rows, cols, T> result;
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            result(i, j) = (*this)(i, j);
-        }
-    }
-    for (int i = 0; i < other_rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            result(rows + i, j) = other(i, j);
-        }
-    }
-    return result;
-}
-*/
   Matrix< rows, cols ,T > operator-(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
     for (int i = 0; i < rows; i++) {
