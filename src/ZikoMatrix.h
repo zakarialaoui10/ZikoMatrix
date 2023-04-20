@@ -12,6 +12,13 @@ class Matrix {
     int _cols=cols;
     T data[rows][cols]={};
     public:
+    Matrix() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                data[i][j] = 0;
+            }
+        }
+    }
     Matrix(T (*arr)[cols]) {
         for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
