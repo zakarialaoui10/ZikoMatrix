@@ -30,7 +30,7 @@ class Matrix {
         data[i][j] = arr[i * cols + j];
   }
   ~Matrix<rows,cols,T>() {
-   
+    
   }
   Matrix<rows, cols , T> clone() const {
     Matrix< rows, cols , T > result = *this;
@@ -143,16 +143,7 @@ void slice(int r,int c,int i,int j){}
     }
     return result;
   }
-  Matrix< rows, cols ,T > operator-(const Matrix<rows, cols , T >& other) const {
-    Matrix< rows, cols , T > result = this->clone();
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
-        result.data[i][j] -= other.data[i][j];
-      }
-    }
-    return result;
-  }
-  template <int other_cols>
+    template <int other_cols>
 Matrix<rows, cols + other_cols, T> hstack(const Matrix<rows, other_cols, T>& other) const {
     Matrix<rows, cols + other_cols, T> result;
     for (int i = 0; i < rows; i++) {
@@ -164,6 +155,8 @@ Matrix<rows, cols + other_cols, T> hstack(const Matrix<rows, other_cols, T>& oth
         }
     }
     return result;
+}
+void hstack(const Matrix<rows, other_cols, T>& other){
 }
 template <int other_rows>
 Matrix<rows + other_rows, cols, T> vstack(const Matrix<other_rows, cols, T>& other) const {
@@ -180,7 +173,15 @@ Matrix<rows + other_rows, cols, T> vstack(const Matrix<other_rows, cols, T>& oth
     }
     return result;
 }
-
+  Matrix< rows, cols ,T > operator-(const Matrix<rows, cols , T >& other) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result.data[i][j] -= other.data[i][j];
+      }
+    }
+    return result;
+  }
   Matrix< rows, cols , T >& operator+=(const Matrix< rows, cols , T >& other) {
     *this = *this + other;
     return *this;
