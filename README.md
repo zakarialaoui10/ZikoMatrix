@@ -44,5 +44,5 @@
 ## Testers
 |Methode|description|
 |--|--|
-|isSquare|determines whether a given matrix is square or not|
-|isSym|determines whether a given matrix is symmetric or not|
+|`isSquare`|determines whether a given matrix is square or not|
+|`isSym`|determines whether a given matrix is symmetric or not|
