@@ -104,7 +104,10 @@ class Matrix {
     return *this;
   }
   bool isSquare(){
-      return rows==cols;
+      return _rows==_cols;
+  }
+  int size(){
+     return _rows*_cols;
   }
   void reshape(int new_rows, int new_cols) {
         // Check if the new dimensions are valid
