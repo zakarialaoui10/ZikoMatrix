@@ -68,11 +68,22 @@ class Matrix {
     }
     return Matrix<rows, cols , T>(arr);
   }
-  double det(){
-    //if(!isSquare())
-    if (rows == 1)return data[0][0];
-    
+double det(){
+    if(rows==1)return data[0][0];
+    double determinant=0;
+    for(int j=0;j<cols;j++){
+        Matrix<rows-1,cols-1,T>submatrix;
+        for(int i=1;i<rows;i++){
+            for(int k=0;k<cols;k++){
+                if(k<j)submatrix[i-1][k]=data[i][k];
+                else if(k>j)submatrix[i-1][k-1]=data[i][k];
+            }
+        }
+        //double subdet=submatrix.det();
+        
     }
+    return determinant;
+}
 bool reshape(int new_rows, int new_cols) {
         if (new_rows * new_cols != _rows * _cols)return false;
         // Copy data to temporary array
