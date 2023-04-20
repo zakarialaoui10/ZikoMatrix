@@ -106,6 +106,9 @@ public:
     *this = *this - other;
     return *this;
   }
+  bool isSquare(){
+      return rows==cols;
+  }
   void print() const {
 #if defined(ARDUINO)
     for (int i = 0; i < rows; i++) {
