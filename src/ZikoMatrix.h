@@ -156,7 +156,8 @@ Matrix<rows, cols + other_cols, T> hstack(const Matrix<rows, other_cols, T>& oth
     }
     return result;
 }
-void hstack(const Matrix<rows, other_cols, T>& other){
+void hstack(){
+    
 }
 template <int other_rows>
 Matrix<rows + other_rows, cols, T> vstack(const Matrix<other_rows, cols, T>& other) const {
