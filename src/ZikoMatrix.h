@@ -85,8 +85,15 @@ double det(){
     }
     return determinant;
 }
-bool reshape(int new_rows, int new_cols) {
-        if (new_rows * new_cols != _rows * _cols)return false;
+void reshape(int new_rows, int new_cols) {
+        if (new_rows * new_cols != _rows * _cols){
+          #if defined(ARDUINO)
+          Serial.println("Invalid size");
+          return;
+          #else
+          throw std::out_of_range("Invalid size");
+          #endif  
+        }
         // Copy data to temporary array
         T temp[_rows][_cols];
         for (int i = 0; i < _rows; i++) {
@@ -102,10 +109,8 @@ bool reshape(int new_rows, int new_cols) {
                 count++;
             }
         }
-        // Update member variables
         _rows = new_rows;
         _cols = new_cols;
-        return true;
     }  
   void transpose() {
       _cols=rows;
