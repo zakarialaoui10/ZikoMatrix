@@ -13,7 +13,11 @@
 ``` C++
   M1.print();
 ```
-
+## Acces And Set Data
+|Mehode|Acces|Set|
+|-|--|--|
+|1|`M[i][j]`|`M[i][j]=4`|
+|2|`M(i,j)`|`M(i,j)=4`|
 ## Static Methodes 
 ``` C++
   int r=2,c=3;
