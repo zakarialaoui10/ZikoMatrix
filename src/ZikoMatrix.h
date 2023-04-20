@@ -259,5 +259,4 @@ template<int new_cols>
       #endif
   }
 };
-
 #endif // MATRIX_H
