@@ -30,3 +30,8 @@
    M3+=M3;
    M4-=M3;
 ```
+## Other Methodes 
+|Methode|description|
+|--|--|
+|reshape||
+|transpose||
