@@ -31,7 +31,7 @@
    M4-=M3;
 ```
 ## Other Methodes 
-|Methode|description|
-|--|--|
-|reshape||
-|transpose||
+|Methode|description|return|
+|--|--|--|
+|reshape|||
+|transpose|Transposes the given matrix |void|
