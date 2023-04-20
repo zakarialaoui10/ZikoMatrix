@@ -143,6 +143,7 @@ void slice(int r,int c,int i,int j){}
     }
     return result;
   }
+/*
     template <int other_cols>
 Matrix<rows, cols + other_cols, T> hstack(const Matrix<rows, other_cols, T>& other) const {
     Matrix<rows, cols + other_cols, T> result;
@@ -156,9 +157,30 @@ Matrix<rows, cols + other_cols, T> hstack(const Matrix<rows, other_cols, T>& oth
     }
     return result;
 }
-void hstack(){
-    
-}
+*/
+template<int new_cols>
+    void hstack(const Matrix<rows, new_cols, T>& other) {
+        // Create a new matrix with updated number of columns
+        Matrix<rows, cols+new_cols, T> result;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result.data[i][j] = data[i][j];
+            }
+            for (int j = 0; j < new_cols; j++) {
+                result.data[i][j+cols] = other.data[i][j];
+            }
+        }
+
+        // Copy the data back to the original matrix
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols+new_cols; j++) {
+                data[i][j] = result.data[i][j];
+            }
+        }
+
+        // Update the number of columns
+        _cols += new_cols;
+    }
 template <int other_rows>
 Matrix<rows + other_rows, cols, T> vstack(const Matrix<other_rows, cols, T>& other) const {
     Matrix<rows + other_rows, cols, T> result;
