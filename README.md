@@ -41,8 +41,8 @@
 |--|--|--|
 |`.reshape(r,c)`|Reshape the given matrix|The size of the new Matrix should be equal to the old one|
 |`.transpose()`|Transposes the given matrix |-|
-|`.hstack(const Matrix<rows, new_cols, T>& other)`|||
-|`.vstack(const Matrix<new_rows, cols, T>& other)`|||
+|`.hstack(M)`||M should be Matrix|
+|`.vstack(M)`||M should be Matrix|
 ## Testers
 |Methode|description|
 |--|--|
