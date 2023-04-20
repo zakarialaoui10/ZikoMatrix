@@ -133,6 +133,7 @@ Matrix<subRows, subCols, T> slice(int startRow, int startCol) const {
     }
     return submatrix;
 }
+void slice(int r,int c,int i,int j){}
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
     for (int i = 0; i < rows; i++) {
