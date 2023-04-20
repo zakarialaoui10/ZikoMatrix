@@ -152,6 +152,35 @@ void slice(int r,int c,int i,int j){}
     }
     return result;
   }
+  template <int other_cols>
+Matrix<rows, cols + other_cols, T> hstack(const Matrix<rows, other_cols, T>& other) const {
+    Matrix<rows, cols + other_cols, T> result;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            result(i, j) = (*this)(i, j);
+        }
+        for (int j = 0; j < other_cols; j++) {
+            result(i, cols + j) = other(i, j);
+        }
+    }
+    return result;
+}
+template <int other_rows>
+Matrix<rows + other_rows, cols, T> vstack(const Matrix<other_rows, cols, T>& other) const {
+    Matrix<rows + other_rows, cols, T> result;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            result(i, j) = (*this)(i, j);
+        }
+    }
+    for (int i = 0; i < other_rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            result(rows + i, j) = other(i, j);
+        }
+    }
+    return result;
+}
+
   Matrix< rows, cols , T >& operator+=(const Matrix< rows, cols , T >& other) {
     *this = *this + other;
     return *this;
