@@ -1,0 +1,10 @@
+Add
+ reshape
+ transpose
+ slice
+ hstack
+ vstack
+ isId
+ isSquare
+ isSym
+ isAntiSym
