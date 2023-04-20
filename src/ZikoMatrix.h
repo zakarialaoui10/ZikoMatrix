@@ -10,6 +10,8 @@
 template <int rows = 0, int cols = rows , typename T=int>
 class Matrix {
 private:
+  int _rows=rows;
+  int _cols=cols;
   T data[rows][cols]={};
 public:
   Matrix(T (*arr)[cols]) {
@@ -67,6 +69,8 @@ public:
     return Matrix<rows, cols , T>(arr);
   }
   void transpose() {
+      _cols=rows;
+      _rows=cols;
   T temp[cols][rows];
   for (int i = 0; i < rows; i++) {
     for (int j = 0; j < cols; j++) {
@@ -74,8 +78,8 @@ public:
     }
   }
   // Copy the transpose matrix back to the original matrix
-  for (int i = 0; i < cols; i++) {
-    for (int j = 0; j < rows; j++) {
+  for (int i = 0; i < _rows; i++) {
+    for (int j = 0; j < _cols; j++) {
       data[i][j] = temp[i][j];
     }
   }
@@ -109,18 +113,33 @@ public:
   bool isSquare(){
       return rows==cols;
   }
+  template <int cols2>
+void hstack(const Matrix<rows, cols2, T>& other) {
+  int new_cols = cols + cols2;
+  T temp[rows][new_cols];
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+      temp[i][j] = data[i][j];
+    }
+    for (int j = 0; j < cols2; j++) {
+      temp[i][j + cols] = other.data[i][j];
+    }
+  }
+  
+  _cols = new_cols;
+}
   void print() const {
 #if defined(ARDUINO)
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
+    for (int i = 0; i < _rows; i++) {
+      for (int j = 0; j < _cols; j++) {
         Serial.print(data[i][j]);
         Serial.print(' ');
       }
       Serial.println();
     }
 #else
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
+    for (int i = 0; i < _rows; i++) {
+      for (int j = 0; j < _cols; j++) {
         std::cout << data[i][j] << ' ';
       }
       std::cout << '\n';
