@@ -106,21 +106,6 @@ class Matrix {
   bool isSquare(){
       return rows==cols;
   }
-  template <int cols2>
-void hstack(const Matrix<rows, cols2, T>& other) {
-  int new_cols = cols + cols2;
-  T temp[rows][new_cols];
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < cols; j++) {
-      temp[i][j] = data[i][j];
-    }
-    for (int j = 0; j < cols2; j++) {
-      temp[i][j + cols] = other.data[i][j];
-    }
-  }
-  
-  _cols = new_cols;
-}
   void print() const {
       #if defined(ARDUINO)
       for (int i = 0; i < _rows; i++) {
