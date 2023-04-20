@@ -1,33 +1,26 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-
 #if defined(ARDUINO)
 #include <Arduino.h>
 #else
 #include <iostream>
 #endif
-
 template <int rows = 0, int cols = rows , typename T=int>
 class Matrix {
-private:
-  int _rows=rows;
-  int _cols=cols;
-  T data[rows][cols]={};
-public:
-  Matrix(T (*arr)[cols]) {
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
+    private:
+    int _rows=rows;
+    int _cols=cols;
+    T data[rows][cols]={};
+    public:
+    Matrix(T (*arr)[cols]) {
+        for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
         data[i][j] = arr[i][j];
-      }
-    }
   }
-  
-  Matrix<rows, cols , T>(const T (&arr)[rows * cols]) {
-    for (size_t i = 0; i < rows; i++) {
-      for (size_t j = 0; j < cols; j++) {
+    Matrix<rows, cols , T>(const T (&arr)[rows * cols]) {
+        for (size_t i = 0; i < rows; i++)
+        for (size_t j = 0; j < cols; j++)
         data[i][j] = arr[i * cols + j];
-      }
-    }
   }
   ~Matrix<rows,cols,T>() {
     
