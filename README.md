@@ -24,6 +24,7 @@
   Matrix<r, c> z = Matrix<r, c>::zeros();
   Matrix<r, c> o = Matrix<r, c>::ones();
   Matrix<3> Id = Matrix<3>::id();
+  Matrix<4,5> Id = Matrix<4,5,double>::nums(6.7);
 ```
 ## Operators
 ``` C++
