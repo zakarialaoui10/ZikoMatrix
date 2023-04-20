@@ -181,6 +181,32 @@ template<int new_cols>
         // Update the number of columns
         _cols += new_cols;
     }
+ template<int new_rows>
+    void vstack(const Matrix<new_rows, cols, T>& other) {
+        // Create a new matrix with updated number of rows
+        Matrix<rows+new_rows, cols, T> result;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result.data[i][j] = data[i][j];
+            }
+        }
+        for (int i = 0; i < new_rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result.data[i+rows][j] = other.data[i][j];
+            }
+        }
+
+        // Copy the data back to the original matrix
+        for (int i = 0; i < rows+new_rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                data[i][j] = result.data[i][j];
+            }
+        }
+
+        // Update the number of rows
+        _rows += new_rows;
+    }
+/*
 template <int other_rows>
 Matrix<rows + other_rows, cols, T> vstack(const Matrix<other_rows, cols, T>& other) const {
     Matrix<rows + other_rows, cols, T> result;
@@ -196,6 +222,7 @@ Matrix<rows + other_rows, cols, T> vstack(const Matrix<other_rows, cols, T>& oth
     }
     return result;
 }
+*/
   Matrix< rows, cols ,T > operator-(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
     for (int i = 0; i < rows; i++) {
