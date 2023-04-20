@@ -198,6 +198,16 @@ template<int new_cols>
       }
       return true;
   }
+  bool isId(){
+      if(!isSquare()||!isSym())return false;
+      for(int i=0;i<_rows;i++){
+          for(int j=0;j<_cols;j++){
+              if(i==j&&data[i][j]!=1)return false;
+              if(i!=j&&data[i][j]!=0)return false
+          }
+      }
+      return true;
+  }
   void print() const {
       #if defined(ARDUINO)
       for (int i = 0; i < _rows; i++) {
