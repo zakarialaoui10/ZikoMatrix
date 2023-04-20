@@ -46,6 +46,9 @@
 |`.hstack(M)`|Stacks the original matrix vertically with ths matrix M|-|
 |`.vstack(M)`|Stacks the original matrix horizontally with ths matrix M|-|
 |`.clamp(min,max)`||-|
+|`.lerp(min,max)`||-|
+|`.norm(min,max)`||-|
+|`.map(a1,b1,a2,b2)`||-|
 ## Testers
 |Methode|description|
 |-|---|
