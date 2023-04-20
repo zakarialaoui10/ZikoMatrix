@@ -70,6 +70,7 @@ class Matrix {
   }
 double det(){
     if(rows==1)return data[0][0];
+    if(rows==2)return data[0][0]*data[1][1]-data[0][1]*data[1][0];
     double determinant=0;
     for(int j=0;j<cols;j++){
         Matrix<rows-1,cols-1,T>submatrix;
@@ -121,6 +122,16 @@ bool reshape(int new_rows, int new_cols) {
       data[i][j] = temp[i][j];
     }
   }
+}
+template <int subRows, int subCols>
+Matrix<subRows, subCols, T> slice(int startRow, int startCol) const {
+    Matrix<subRows, subCols, T> submatrix;
+    for (int i = 0; i < subRows; i++) {
+        for (int j = 0; j < subCols; j++) {
+            submatrix(i, j) = data[i + startRow][j + startCol];
+        }
+    }
+    return submatrix;
 }
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
