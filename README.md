@@ -39,7 +39,7 @@
 ## Other Methodes 
 |Methode|description|condition|
 |--|--|--|
-|`.reshape(r,c)`||r*c should be equal to rows * cols|
+|`.reshape(r,c)`||The size of the new Matrix should be equal to the old one|
 |`.transpose()`|Transposes the given matrix |void|
 ## Testers
 |Methode|description|
