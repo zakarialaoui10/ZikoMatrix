@@ -66,16 +66,20 @@ public:
     }
     return Matrix<rows, cols , T>(arr);
   }
-  /*void transpose() {
-      T temp[cols][rows];
-    for (int i = 0; i < rows; i++) {
-      for (int j = i + 1; j < cols; j++) {
-          temp[i][j]=data[j][i];
-      }
+  void transpose() {
+  T temp[cols][rows];
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
+      temp[j][i] = data[i][j];
     }
-    delete data[rows][cols];
-    T data[cols][rows]=temp;
-  }*/
+  }
+  // Copy the transpose matrix back to the original matrix
+  for (int i = 0; i < cols; i++) {
+    for (int j = 0; j < rows; j++) {
+      data[i][j] = temp[i][j];
+    }
+  }
+}
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
     for (int i = 0; i < rows; i++) {
