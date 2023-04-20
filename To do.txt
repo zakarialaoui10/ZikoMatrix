@@ -8,3 +8,4 @@ Add
  isSquare
  isSym
  isAntiSym
+ isDiag
