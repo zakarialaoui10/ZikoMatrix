@@ -47,7 +47,9 @@
 |`.vstack(M)`|Stacks the original matrix horizontally with ths matrix M|-|
 ## Testers
 |Methode|description|
-|--|--|
+|-|---|
+|`isId()`|determines whether a given matrix is identity matrix or not|
 |`isSquare()`|determines whether a given matrix is square or not|
 |`isSym()`|determines whether a given matrix is symmetric or not|
-|`isId()`|determines whether a given matrix is identity matrix or not|
+|`isAntiSym()`|determines whether a given matrix is antisymmetric or not|
+
