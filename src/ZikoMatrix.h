@@ -266,6 +266,10 @@ template<int new_cols>
       }
       return true;
   }
+  bool isOrtho(){
+      if(!isDiag())return false;
+      return false; // To Do 
+  }
   void print() const {
       #if defined(ARDUINO)
       for (int i = 0; i < _rows; i++) {
