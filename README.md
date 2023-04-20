@@ -21,10 +21,10 @@
 ## Static Methodes 
 ``` C++
   int r=2,c=3;
-  Matrix<r, c> z = Matrix<r, c>::zeros();
-  Matrix<r, c> o = Matrix<r, c>::ones();
-  Matrix<3> Id = Matrix<3>::id();
-  Matrix<4,5> nums = Matrix<4,5,double>::nums(6.7);
+  Matrix<r, c> Z = Matrix<r, c>::Zeros();
+  Matrix<r, c> O = Matrix<r, c>::Ones();
+  Matrix<3> Id = Matrix<3>::Id();
+  Matrix<4,5> Nums = Matrix<4,5,double>::Nums(6.7);
 ```
 ## Operators
 ``` C++
