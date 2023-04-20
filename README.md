@@ -41,9 +41,9 @@
 |--|--|--|
 |`.reshape(r,c)`|Reshape the given matrix|The size of the new Matrix should be equal to the old one|
 |`.transpose()`|Transposes the given matrix |-|
-|`.slice(r,c,i,j)`|slice the given matrix |-|
-|`.hstack(M)`|stacks the original matrix vertically with ths matrix M|-|
-|`.vstack(M)`|stacks the original matrix horizontally with ths matrix M|-|
+|`.slice(r,c,i,j)`|Extracts a sub-matrix from the original matrix, |-|
+|`.hstack(M)`|S the original matrix vertically with ths matrix M|-|
+|`.vstack(M)`|Stacks the original matrix horizontally with ths matrix M|-|
 ## Testers
 |Methode|description|
 |--|--|
