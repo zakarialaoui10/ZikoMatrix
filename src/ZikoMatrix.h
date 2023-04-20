@@ -270,6 +270,12 @@ template<int new_cols>
       if(!isDiag())return false;
       return false; // To Do 
   }
+  void clamp(T min,T max){
+    for(int i=0;i<_rows;i++){
+        for(int j=0;j<_cols;j++)
+        data[i][j]=data[i][j]<min?min:data[i][j]>max?max:data[i][j];
+    }
+  }
   void print() const {
       #if defined(ARDUINO)
       for (int i = 0; i < _rows; i++) {
