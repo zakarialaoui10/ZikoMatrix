@@ -5,6 +5,22 @@
 #else
 #include <iostream>
 #endif
+template<typename T>
+T _clamp(T x,T min,T max){
+   return x<min?min:x>max?max:x; 
+}
+template<typename T>
+T _lerp(T x,T min,T max){
+    return (max-min)*x+min;
+}
+template<typename T>
+T _norm(T x,T min,T max){
+    return (x-min)/(max-min);
+}
+template<typename T>
+T _map(T x,T a1,T b1,T a2,T b2){
+    return _lerp(_norm(x,a1,b1),a2,b2);
+}
 template <int rows = 0, int cols = rows , typename T=int>
 class Matrix {
     public:
@@ -273,9 +289,29 @@ template<int new_cols>
   void clamp(T min,T max){
     for(int i=0;i<_rows;i++){
         for(int j=0;j<_cols;j++)
-        data[i][j]=data[i][j]<min?min:data[i][j]>max?max:data[i][j];
+        data[i][j]=_clamp(data[i][j],min,max);
     }
   }
+  void lerp(T min,T max){
+    for(int i=0;i<_rows;i++){
+        for(int j=0;j<_cols;j++)
+        data[i][j]=_clamp(data[i][j],min,max);
+    }
+  }
+  void norm(T min,T max){
+    for(int i=0;i<_rows;i++){
+        for(int j=0;j<_cols;j++)
+        data[i][j]=_clamp(data[i][j],min,max);
+    }
+  }
+  void map(T a1,T b1,T a2,T b2){
+    for(int i=0;i<_rows;i++){
+        for(int j=0;j<_cols;j++)
+        data[i][j]=_map(data[i][j],a1,b1,a2,b2);
+    }
+  }
+  
+  
   void print() const {
       #if defined(ARDUINO)
       for (int i = 0; i < _rows; i++) {
