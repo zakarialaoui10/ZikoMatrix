@@ -37,10 +37,10 @@
    M4-=M3;
 ```
 ## Other Methodes 
-|Methode|description|return|
+|Methode|description|condition|
 |--|--|--|
-|reshape|||
-|transpose|Transposes the given matrix |void|
+|`.reshape(r,c)`||r*c should be equal to rows * cols|
+|`.transpose()`|Transposes the given matrix |void|
 ## Testers
 |Methode|description|
 |--|--|
