@@ -55,11 +55,11 @@ class Matrix {
        }
        return Matrix<rows, rows , T>(arr);
    }
-   static Matrix<rows, cols,T> zeros() {
+   static Matrix<rows, cols,T> Zeros() {
     T arr[rows][cols] = {};
     return Matrix<rows, cols , T>(arr);
   }
-  static Matrix<rows, cols , T> ones() {
+  static Matrix<rows, cols , T> Ones() {
     int arr[rows][cols] = {};
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
@@ -68,7 +68,7 @@ class Matrix {
     }
     return Matrix<rows, cols , T>(arr);
   }
-  static Matrix<rows, cols , T> nums(T num) {
+  static Matrix<rows, cols , T> Nums(T num) {
     T arr[rows][cols] = {};
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
