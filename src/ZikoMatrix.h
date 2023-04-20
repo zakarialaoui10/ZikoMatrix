@@ -68,6 +68,15 @@ class Matrix {
     }
     return Matrix<rows, cols , T>(arr);
   }
+  static Matrix<rows, cols , T> nums(T num) {
+    T arr[rows][cols] = {};
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        arr[i][j] = num;
+      }
+    }
+    return Matrix<rows, cols , T>(arr);
+  }
 double det(){
     if(rows==1)return data[0][0];
     if(rows==2)return data[0][0]*data[1][1]-data[0][1]*data[1][0];
@@ -259,4 +268,5 @@ template<int new_cols>
       #endif
   }
 };
+
 #endif // MATRIX_H
