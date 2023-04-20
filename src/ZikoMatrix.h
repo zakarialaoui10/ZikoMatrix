@@ -30,7 +30,7 @@ class Matrix {
         data[i][j] = arr[i * cols + j];
   }
   ~Matrix<rows,cols,T>() {
-    
+   
   }
   Matrix<rows, cols , T> clone() const {
     Matrix< rows, cols , T > result = *this;
