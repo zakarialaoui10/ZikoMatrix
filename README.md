@@ -35,3 +35,7 @@
 |--|--|--|
 |reshape|||
 |transpose|Transposes the given matrix |void|
+## Checkers
+|Methode|description|
+|--|--|
+|isSquare|determines whether a given matrix is square or not|
