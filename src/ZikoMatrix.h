@@ -239,6 +239,15 @@ template<int new_cols>
       }
       return true;
   }
+  bool isAntiSym(){
+      if(!isSquare())return false;
+      for(int i=0;i<_rows;i++){
+          for(int j=0;j<_cols;j++){
+              if(data[i][j]!=-data[j][i])return false;
+          }
+      }
+      return true;
+  }
   bool isId(){
       if(!isSquare()||!isSym())return false;
       for(int i=0;i<_rows;i++){
