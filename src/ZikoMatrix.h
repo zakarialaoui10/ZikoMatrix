@@ -7,7 +7,7 @@
 #endif
 template <int rows = 0, int cols = rows , typename T=int>
 class Matrix {
-    private:
+    public:
     int _rows=rows;
     int _cols=cols;
     T data[rows][cols]={};
@@ -61,6 +61,11 @@ class Matrix {
     }
     return Matrix<rows, cols , T>(arr);
   }
+  double det(){
+    //if(!isSquare())
+    if (rows == 1)return data[0][0];
+    
+    }
 bool reshape(int new_rows, int new_cols) {
         if (new_rows * new_cols != _rows * _cols)return false;
         // Copy data to temporary array
