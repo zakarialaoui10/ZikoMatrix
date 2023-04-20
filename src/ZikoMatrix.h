@@ -128,6 +128,15 @@ bool reshape(int new_rows, int new_cols) {
   bool isSquare(){
       return rows==cols;
   }
+  bool isSym(){
+      if(!isSquare())return false;
+      for(int i=0;i<_rows;i++){
+          for(int j=0;j<_cols;j++){
+              if(data[i][j]!=data[j][i])return false;
+          }
+      }
+      return true;
+  }
   void print() const {
       #if defined(ARDUINO)
       for (int i = 0; i < _rows; i++) {
