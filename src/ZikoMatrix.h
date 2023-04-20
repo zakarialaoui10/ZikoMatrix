@@ -132,7 +132,34 @@ Matrix<subRows, subCols, T> slice(int startRow, int startCol) const {
     }
     return submatrix;
 }
-void slice(int r,int c,int i,int j){}
+void slice(int r0,int c0, int r1, int c1) {
+        int new_rows = r1 - r0;
+        int new_cols = c1 - c0;
+        // Check if the slice range is within bounds
+        if (r0 < 0 || r0 >= _rows ||
+            r1 < r0 || r1 > _rows ||
+            c0 < 0 || c0 >= _cols ||
+            c1 < c0 || c1 > _cols) {
+            // Handle out of bounds error
+            #if defined(ARDUINO)
+            Serial.println("Invalid slice range");
+            return;
+            #else
+            throw std::out_of_range("Invalid slice range");
+            #endif
+        }
+        T temp[new_rows][new_cols];
+        //Copy
+        for (int i = r0; i < r1; i++) {
+            for (int j = c0; j < c1; j++)temp[i - r0][j - c0] = data[i][j];
+        }
+        //Overwrite
+        for (int i = 0; i < new_rows; i++) {
+            for (int j = 0; j < new_cols; j++)data[i][j] = temp[i][j];
+        }
+        _rows = new_rows;
+        _cols = new_cols;
+    }
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
     for (int i = 0; i < rows; i++) {
@@ -203,7 +230,7 @@ template<int new_cols>
       for(int i=0;i<_rows;i++){
           for(int j=0;j<_cols;j++){
               if(i==j&&data[i][j]!=1)return false;
-              if(i!=j&&data[i][j]!=0)return false
+              if(i!=j&&data[i][j]!=0)return false;
           }
       }
       return true;
