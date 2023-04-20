@@ -37,7 +37,7 @@
    M4-=M3;
 ```
 ## Other Methodes 
-|Methode|description|condition|
+|Methode|Description|Condition|
 |--|--|--|
 |`.reshape(r,c)`|Reshape the given matrix|The size of the new Matrix should be equal to the old one|
 |`.transpose()`|Transposes the given matrix |-|
@@ -46,5 +46,6 @@
 ## Testers
 |Methode|description|
 |--|--|
-|`isSquare`|determines whether a given matrix is square or not|
-|`isSym`|determines whether a given matrix is symmetric or not|
+|`isSquare()`|determines whether a given matrix is square or not|
+|`isSym()`|determines whether a given matrix is symmetric or not|
+|`isId()`|determines whether a given matrix is identity matrix or not|
