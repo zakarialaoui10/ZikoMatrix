@@ -41,6 +41,7 @@
 |--|--|--|
 |`.reshape(r,c)`|Reshape the given matrix|The size of the new Matrix should be equal to the old one|
 |`.transpose()`|Transposes the given matrix |-|
+|`.slice(r,c,i,j)`|slice the given matrix |-|
 |`.hstack(M)`||M should be Matrix|
 |`.vstack(M)`||M should be Matrix|
 ## Testers
