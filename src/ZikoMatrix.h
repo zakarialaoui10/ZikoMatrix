@@ -129,22 +129,22 @@ void hstack(const Matrix<rows, cols2, T>& other) {
   _cols = new_cols;
 }
   void print() const {
-#if defined(ARDUINO)
-    for (int i = 0; i < _rows; i++) {
-      for (int j = 0; j < _cols; j++) {
-        Serial.print(data[i][j]);
-        Serial.print(' ');
+      #if defined(ARDUINO)
+      for (int i = 0; i < _rows; i++) {
+          for (int j = 0; j < _cols; j++) {
+              Serial.print(data[i][j]);
+              Serial.print(' ');
+          }
+          Serial.println();
       }
-      Serial.println();
-    }
-#else
-    for (int i = 0; i < _rows; i++) {
-      for (int j = 0; j < _cols; j++) {
-        std::cout << data[i][j] << ' ';
+      #else
+      for (int i = 0; i < _rows; i++) {
+          for (int j = 0; j < _cols; j++) {
+              std::cout << data[i][j] << ' ';
+          }
+          std::cout << '\n';
       }
-      std::cout << '\n';
-    }
-#endif
+      #endif
   }
 };
 
