@@ -1,3 +1,7 @@
+/*
+  Author : Zakaria Elalaoui
+  
+*/
 #ifndef MATRIX_H
 #define MATRIX_H
 #if defined(ARDUINO)
