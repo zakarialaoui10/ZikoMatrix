@@ -53,6 +53,7 @@
 |`.lerp(min,max)`||-|
 |`.norm(min,max)`||-|
 |`.map(a1,b1,a2,b2)`||-|
+|`.count(n)`||-|
 ## Testers
 |Methode|description|
 |-|---|
