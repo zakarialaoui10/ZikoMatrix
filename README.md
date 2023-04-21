@@ -40,6 +40,8 @@
 ## Other Methodes 
 |Methode|Description|Condition|
 |--|--|--|
+|`.det()`|The determinant of the given matrix|should be a square matrix|
+|`.transpose()`|Transposes the given matrix |-|
 |`.reshape(r,c)`|Reshapes the given matrix|The size of the new Matrix should be equal to the old one|
 |`.transpose()`|Transposes the given matrix |-|
 |`.slice(r0,c0,r1,c1)`|Extracts a sub-matrix from the original matrix, |-|
