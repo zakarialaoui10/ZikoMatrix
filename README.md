@@ -58,7 +58,7 @@ M1: Matrix
    M3+=M3;
    M4-=M3;
 ```
-## Other Methodes 
+## Void Methodes 
 |Methode|Description|Example|Condition|
 |-|--|-|--|
 |`.print()`|||-|
