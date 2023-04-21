@@ -209,6 +209,12 @@ void slice(int r0,int c0, int r1, int c1) {
         _rows = new_rows;
         _cols = new_cols;
     }
+    template <typename Func>
+    void foreach(Func func) {
+        for (size_t i = 0; i < rows; i++) {
+            for (size_t j = 0; j < cols; j++)data[i][j] = func(data[i][j]);
+        }
+    }
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
     for (int i = 0; i < rows; i++) {
