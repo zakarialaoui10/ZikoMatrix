@@ -214,7 +214,89 @@ void slice(int r0,int c0, int r1, int c1) {
     }
     return result;
   }
-template<int new_cols>
+  Matrix< rows, cols ,T > operator+(T x) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result[i][j] += x;
+      }
+    }
+    return result;
+  }
+  Matrix< rows, cols ,T > operator-(const Matrix<rows, cols , T >& other) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result.data[i][j] -= other.data[i][j];
+      }
+    }
+    return result;
+  }
+  Matrix< rows, cols ,T > operator-(T x) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result[i][j] -= x;
+      }
+    }
+    return result;
+  }
+  Matrix< rows, cols ,T > operator*(T x) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result[i][j] *= x;
+      }
+    }
+    return result;
+  }
+  Matrix< rows, cols ,T > operator/(T x) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result[i][j] /= x;
+      }
+    }
+    return result;
+  }
+  Matrix< rows, cols ,T > operator%(int x) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        result[i][j] %= x;
+      }
+    }
+    return result;
+  }
+  Matrix< rows, cols , T >& operator+=(const Matrix< rows, cols , T >& other) {
+    *this = *this + other;
+    return *this;
+  }
+  Matrix< rows, cols , T >& operator+=(T x) {
+    *this = *this + x;
+    return *this;
+  }
+  Matrix< rows, cols , T >& operator-=(const Matrix< rows, cols , T >& other) {
+    *this = *this - other;
+    return *this;
+  }
+  Matrix< rows, cols , T >& operator-=(T x) {
+    *this = *this - x;
+    return *this;
+  }
+  Matrix< rows, cols , T >& operator*=(T x) {
+    *this = *this * x;
+    return *this;
+  }
+  Matrix< rows, cols , T >& operator/=(T x) {
+    *this = *this / x;
+    return *this;
+  }
+  Matrix< rows, cols , int >& operator%=(int x) {
+    *this = *this % x;
+    return *this;
+  }
+  template<int new_cols>
     void hstack(const Matrix<rows, new_cols, T>& other) {
         Matrix<rows, cols+new_cols, T> result;
         for (int i = 0; i < rows; i++) {
@@ -241,23 +323,6 @@ template<int new_cols>
         }
         _rows += new_rows;
     }
-  Matrix< rows, cols ,T > operator-(const Matrix<rows, cols , T >& other) const {
-    Matrix< rows, cols , T > result = this->clone();
-    for (int i = 0; i < rows; i++) {
-      for (int j = 0; j < cols; j++) {
-        result.data[i][j] -= other.data[i][j];
-      }
-    }
-    return result;
-  }
-  Matrix< rows, cols , T >& operator+=(const Matrix< rows, cols , T >& other) {
-    *this = *this + other;
-    return *this;
-  }
-  Matrix< rows, cols , T >& operator-=(const Matrix< rows, cols , T >& other) {
-    *this = *this - other;
-    return *this;
-  }
   bool isSquare(){
       return rows==cols;
   }
@@ -333,8 +398,7 @@ template<int new_cols>
     }
     return c;
   }
-  
-  
+   
   void print() const {
       #if defined(ARDUINO)
       for (int i = 0; i < _rows; i++) {
