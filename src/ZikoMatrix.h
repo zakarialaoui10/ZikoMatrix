@@ -307,6 +307,11 @@ void slice(int r0,int c0, int r1, int c1) {
     *this = *this - x;
     return *this;
   }
+  template<int cols2>
+  Matrix< rows, cols , T >& operator*=(const Matrix< rows, cols2 , T >& other) {
+    *this = *this * other;
+    return *this;
+  }
   Matrix< rows, cols , T >& operator*=(T x) {
     *this = *this * x;
     return *this;
