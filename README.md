@@ -28,7 +28,7 @@
 ```
 ## Operators 
   ### List
-|Operator |operande|Syntax|
+|Operator |Operande|Syntax|
 |--|--|--|
 |+|Matrix||
 |+|Scalar|
@@ -38,14 +38,14 @@
 |*|Scalar|
 |/|Scalar|
 |%|Integer|
-|+=|Matrix|`M1+=M2`|
-|+=|Scalar|`M1+=a`|
-|-=|Matrix|`M1-=M2`|
-|-=|Scalar|`M1-=a`|
-|*=|Matrix|`M1*=M2`|
-|*=|Scalar|`M1+=a`|
-|/=|Scalar|`M1/=a`|
-|%=|Integer|`M1%=a`|
+|+=|M2:Matrix|`M1+=M2`|
+|+=|a:Scalar|`M1+=a`|
+|-=|M2:Matrix|`M1-=M2`|
+|-=|a:Scalar|`M1-=a`|
+|*=|M2:Matrix|`M1*=M2`|
+|*=|a:Scalar|`M1+=a`|
+|/=|a:Scalar|`M1/=a`|
+|%=|a:Integer|`M1%=a`|
   ### Examples
 ``` C++
    int arr1[2][3] = {{1, 2, 3},{4, 5, 6}};
