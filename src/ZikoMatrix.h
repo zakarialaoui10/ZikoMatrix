@@ -324,6 +324,26 @@ void slice(int r0,int c0, int r1, int c1) {
     *this = *this % x;
     return *this;
   }
+  template<typename... Matrices>
+    void add(const Matrices&... matrices) {
+        (void)( (operator+=(matrices), 0) , ... );
+    }
+  template<typename... Matrices>
+    void sub(const Matrices&... matrices) {
+        (void)( (operator-=(matrices), 0) , ... );
+    }
+  template<typename... Matrices>
+    void mul(const Matrices&... matrices) {
+        (void)( (operator*=(matrices), 0) , ... );
+    }
+  template<typename... Matrices>
+    void div(const Matrices&... matrices) {
+        (void)( (operator/=(matrices), 0) , ... );
+    }
+  template<typename... Matrices>
+    void modulo(const Matrices&... matrices) {
+        (void)( (operator/=(matrices), 0) , ... );
+    }
   template<int new_cols>
     void hstack(const Matrix<rows, new_cols, T>& other) {
         Matrix<rows, cols+new_cols, T> result;
