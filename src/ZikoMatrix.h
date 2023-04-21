@@ -118,12 +118,9 @@ double det(){
     for(int i=0;i<rows;i++){
         Matrix<rows,cols,T>submatrix=this->clone();
         submatrix.deleteCol(i);
-        submatrix.deleteRow(i);
-        //submatrix.print();
+        submatrix.deleteRow(0);
         subdet=submatrix.det();
-        std::cout<<subdet*data[0][i]<<" ";
         determinant+=sign*(*this)[0][i]*subdet;
-        //determinant+=sign*data[0][i]*subdet;
         sign*=-1;
     }
     return determinant;
