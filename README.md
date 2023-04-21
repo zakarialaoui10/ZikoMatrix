@@ -57,7 +57,7 @@
 ```
 ## Other Methodes 
 |Methode|Description|Example|Condition|
-|-|--|--|
+|-|--|-|--|
 |`.print()`|||-|
 |`.det()`|The determinant of the given matrix||should be a square matrix|
 |`.transpose()`|Transposes the given matrix ||-|
