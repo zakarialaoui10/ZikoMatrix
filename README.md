@@ -66,8 +66,8 @@
 |`.foreach(lambda_func)`|higher-order function that takes a function as an argument and applies it to each element of the Matrix.|-|
 |`.deleteRow(i)`||-|
 |`.deleteCol(j)`||-|
-|`.hstack(M)`|Stacks the original matrix vertically with the matrix M|-|
-|`.vstack(M)`|Stacks the original matrix horizontally with the matrix M|-|
+|`.hstack(M)`|Stacks the original matrix vertically with the matrix M|The number of rows in both matrices should be the same,|
+|`.vstack(M)`|Stacks the original matrix horizontally with the matrix M|The number of cols in both matrices should be the same,|
 |`.clamp(min,max)`||-|
 |`.lerp(min,max)`||-|
 |`.norm(min,max)`||-|
