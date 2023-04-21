@@ -28,22 +28,24 @@
 ```
 ## Operators 
   ### List
-|Operator |operande
-|--|--
-|+|Matrix|
+|Operator |operande|Syntax|
+|--|--|--|
+|+|Matrix||
 |+|Scalar|
 |-|Matrix|
 |-|Scalar|
+|*|Matrix|
 |*|Scalar|
 |/|Scalar|
 |%|Integer|
-|+=|Matrix|
-|+=|Scalar|
-|-=|Matrix|
-|-=|Scalar|
-|*=|Scalar|
-|/=|Scalar|
-|%=|Integer|
+|+=|Matrix|`M1+=M2`|
+|+=|Scalar|`M1+=a`|
+|-=|Matrix|`M1-=M2`|
+|-=|Scalar|`M1-=a`|
+|*=|Matrix|`M1*=M2`|
+|*=|Scalar|`M1+=a`|
+|/=|Scalar|`M1/=a`|
+|%=|Integer|`M1%=a`|
   ### Examples
 ``` C++
    int arr1[2][3] = {{1, 2, 3},{4, 5, 6}};
