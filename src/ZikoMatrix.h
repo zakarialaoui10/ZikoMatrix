@@ -101,7 +101,7 @@ void deleteRow(size_t index) {
     }
     _rows--;
 }
-void deleteCol(size_t index) {
+void deleteCol(size_t index){
     for (size_t i = 0; i < rows; i++) {
         for (size_t j = index+1; j < cols; j++) {
             data[i][j-1] = data[i][j];
