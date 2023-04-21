@@ -26,7 +26,8 @@
   Matrix<3> Id = Matrix<3>::Id();
   Matrix<4,5> Nums = Matrix<4,5,double>::Nums(6.7);
 ```
-## Op
+## Operators 
+  ### List
 |Operator |operande
 |--|--
 |+|Matrix|
@@ -43,7 +44,7 @@
 |*=|Scalar|
 |/=|Scalar|
 |%=|Integer|
-## Operators
+  ### Examples
 ``` C++
    int arr1[2][3] = {{1, 2, 3},{4, 5, 6}};
    int arr2[2][3] = {{2, 3, 4},{5, 6, 7}};
