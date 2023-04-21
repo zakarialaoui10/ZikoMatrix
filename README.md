@@ -63,9 +63,9 @@
 |`.reshape(r,c)`|Reshapes the given matrix|The size of the new Matrix should be equal to the old one|
 |`.transpose()`|Transposes the given matrix |-|
 |`.slice(r0,c0,r1,c1)`|Extracts a sub-matrix from the original matrix, |-|
-|`.foreach(lambda_func)`|higher-order function that takes a function as an argument and applies it to each element of the Matrix.|-|
-|`.deleteRow(i)`||-|
-|`.deleteCol(j)`||-|
+|`.foreach(lambda_func)`|Higher-order function that takes a function as an argument and applies it to each element of the Matrix.|-|
+|`.deleteRow(i)`|Remove a specific row from the original matrix.|-|
+|`.deleteCol(j)`|Remove a specific column from the original matrix.|-|
 |`.hstack(M)`|Stacks the original matrix vertically with the matrix M|The number of rows in both matrices should be the same,|
 |`.vstack(M)`|Stacks the original matrix horizontally with the matrix M|The number of cols in both matrices should be the same,|
 |`.clamp(min,max)`||-|
