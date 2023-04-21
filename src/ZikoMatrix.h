@@ -93,20 +93,33 @@ class Matrix {
     }
     return Matrix<rows, cols , T>(arr);
   }
+void deleteRow(size_t index) {
+    for (size_t i = index+1; i < rows; i++) {
+        for (size_t j = 0; j < cols; j++) {
+            data[i-1][j] = data[i][j];
+        }
+    }
+    _rows--;
+}
+void deleteCol(size_t index) {
+    for (size_t i = 0; i < rows; i++) {
+        for (size_t j = index+1; j < cols; j++) {
+            data[i][j-1] = data[i][j];
+        }
+    }
+    _cols--;
+}
 double det(){
     if(rows==1)return data[0][0];
     if(rows==2)return data[0][0]*data[1][1]-data[0][1]*data[1][0];
     double determinant=0;
-    for(int j=0;j<cols;j++){
-        Matrix<rows-1,cols-1,T>submatrix;
-        for(int i=1;i<rows;i++){
-            for(int k=0;k<cols;k++){
-                if(k<j)submatrix[i-1][k]=data[i][k];
-                else if(k>j)submatrix[i-1][k-1]=data[i][k];
-            }
-        }
+    for(int i=0;i<rows;i++){
+        Matrix<rows,cols,T>submatrix=this->clone();
+        submatrix.slice(1,0,rows,i);
+        //submatrix.slice(0,1,rows,cols);
+        //submatrix.print();
         //double subdet=submatrix.det();
-        
+        //determinant+=subdet;
     }
     return determinant;
 }
@@ -328,6 +341,7 @@ template<int new_cols>
           }
           std::cout << '\n';
       }
+      std::cout<<"\n";
       #endif
   }
 };
