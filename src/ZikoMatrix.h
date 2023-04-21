@@ -110,16 +110,21 @@ void deleteCol(size_t index) {
     _cols--;
 }
 double det(){
-    if(rows==1)return data[0][0];
-    if(rows==2)return data[0][0]*data[1][1]-data[0][1]*data[1][0];
+    if(_rows==1)return data[0][0];
+    if(_rows==2)return data[0][0]*data[1][1]-data[0][1]*data[1][0];
     double determinant=0;
+    double subdet=0;
+    int sign=1;
     for(int i=0;i<rows;i++){
         Matrix<rows,cols,T>submatrix=this->clone();
-        submatrix.slice(1,0,rows,i);
-        //submatrix.slice(0,1,rows,cols);
+        submatrix.deleteCol(i);
+        submatrix.deleteRow(i);
         //submatrix.print();
-        //double subdet=submatrix.det();
-        //determinant+=subdet;
+        subdet=submatrix.det();
+        std::cout<<subdet*data[0][i]<<" ";
+        determinant+=sign*(*this)[0][i]*subdet;
+        //determinant+=sign*data[0][i]*subdet;
+        sign*=-1;
     }
     return determinant;
 }
