@@ -325,7 +325,7 @@ template<int new_cols>
         data[i][j]=_map(data[i][j],a1,b1,a2,b2);
     }
   }
-  int count(n){
+  int count(int n){
       int c=0;
       for(int i=0;i<_rows;i++){
         for(int j=0;j<_cols;j++)
