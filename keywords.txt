@@ -5,6 +5,7 @@ Nums KEYWORD3
 Id KEYWORD3
 print KEYWORD2
 transpose KEYWORD2
+reshape KEYWORD2
 slice KEYWORD2
 hstack KEYWORD2
 vsatck KEYWORD2
