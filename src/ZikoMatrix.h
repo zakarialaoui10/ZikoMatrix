@@ -251,6 +251,19 @@ void slice(int r0,int c0, int r1, int c1) {
     }
     return result;
   }
+  template<int cols2>
+  Matrix< rows, cols ,T > operator*(const Matrix<rows, cols2 , T >& other) const {
+    Matrix< rows, cols , T > result = this->clone();
+    for (size_t i = 0; i < rows; i++) {
+        for (size_t j = 0; j < cols2; j++) {
+            result(i, j) = 0;
+            for (size_t k = 0; k < cols; k++) {
+                result(i, j) += data[i][k] * other(k, j);
+            }
+        }
+    }
+    return result;
+  }
   Matrix< rows, cols ,T > operator*(T x) const {
     Matrix< rows, cols , T > result = this->clone();
     for (int i = 0; i < rows; i++) {
