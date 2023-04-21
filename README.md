@@ -82,5 +82,5 @@
 |`isAntiSym()`|determines whether a given matrix is antisymmetric or not|
 
 # License 
-This projet is licensed under the terms of MIT License .<br>
+This projet is licensed under the terms of MIT License . 
 <img src="https://img.shields.io/github/license/zakarialaoui10/zikojs?color=rgb%2820%2C21%2C169%29">
