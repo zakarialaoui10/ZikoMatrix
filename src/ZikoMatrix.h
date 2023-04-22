@@ -307,11 +307,6 @@ void slice(int r0,int c0, int r1, int c1) {
     *this = *this - x;
     return *this;
   }
-  template<int cols2>
-  Matrix< rows, cols , T >& operator*=(const Matrix< rows, cols2 , T >& other) {
-    *this = *this * other;
-    return *this;
-  }
   Matrix< rows, cols , T >& operator*=(T x) {
     *this = *this * x;
     return *this;
@@ -324,26 +319,6 @@ void slice(int r0,int c0, int r1, int c1) {
     *this = *this % x;
     return *this;
   }
-  template<typename... Matrices>
-    void add(const Matrices&... matrices) {
-        (void)( (operator+=(matrices), 0) , ... );
-    }
-  template<typename... Matrices>
-    void sub(const Matrices&... matrices) {
-        (void)( (operator-=(matrices), 0) , ... );
-    }
-  template<typename... Matrices>
-    void mul(const Matrices&... matrices) {
-        (void)( (operator*=(matrices), 0) , ... );
-    }
-  template<typename... Matrices>
-    void div(const Matrices&... matrices) {
-        (void)( (operator/=(matrices), 0) , ... );
-    }
-  template<typename... Matrices>
-    void modulo(const Matrices&... matrices) {
-        (void)( (operator/=(matrices), 0) , ... );
-    }
   template<int new_cols>
     void hstack(const Matrix<rows, new_cols, T>& other) {
         Matrix<rows, cols+new_cols, T> result;
@@ -423,13 +398,13 @@ void slice(int r0,int c0, int r1, int c1) {
   void lerp(T min,T max){
     for(int i=0;i<_rows;i++){
         for(int j=0;j<_cols;j++)
-        data[i][j]=_clamp(data[i][j],min,max);
+        data[i][j]=_lerp(data[i][j],min,max);
     }
   }
   void norm(T min,T max){
     for(int i=0;i<_rows;i++){
         for(int j=0;j<_cols;j++)
-        data[i][j]=_clamp(data[i][j],min,max);
+        data[i][j]=_norm(data[i][j],min,max);
     }
   }
   void map(T a1,T b1,T a2,T b2){
