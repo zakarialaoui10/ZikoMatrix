@@ -66,7 +66,7 @@ M1: Matrix
 |`.transpose()`|Transposes the given matrix |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Transformation/Transpose/transpose.ino)|-|
 |`.reshape(r,c)`|Reshapes the given matrix|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Reshape/reshape.ino)|The size of the new Matrix should be equal to the old one|
 |`.slice(r0,c0,r1,c1)`|Extracts a sub-matrix from the original matrix,|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Slice/slice.ino)|-|
-|`.deleteRow(i)`|Remove a specific row from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/DeleteRow /deleteRow.ino)|-|
+|`.deleteRow(i)`|Remove a specific row from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/DeleteCol/deleteCol.ino)|-|
 |`.deleteCol(j)`|Remove a specific column from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/DeleteCol/deleteCol.ino)|-|
 |`.hstack(M)`|Stacks the original matrix vertically with the matrix M||The number of rows in both matrices should be the same,|
 |`.vstack(M)`|Stacks the original matrix horizontally with the matrix M||The number of cols in both matrices should be the same,|
