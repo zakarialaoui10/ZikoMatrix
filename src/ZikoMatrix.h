@@ -333,19 +333,14 @@ void slice(int r0,int c0, int r1, int c1) {
         _cols += new_cols;
     }
  template<int new_rows>
-    void vstack(const Matrix<new_rows, cols, T>& other) {
-        Matrix<rows+new_rows, cols, T> result;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++)result[i][j] = data[i][j];
-        }
-        for (int i = 0; i < new_rows; i++) {
-            for (int j = 0; j < cols; j++)result[i+rows][j] = other[i][j];
-        }
-        for (int i = 0; i < rows+new_rows; i++) {
-            for (int j = 0; j < cols; j++)data[i][j] = result[i][j];
-        }
-        _rows += new_rows;
-    }
+void vstack(Matrix<new_rows, cols, T>& other) {
+    transpose();
+    other.transpose();
+    hstack(other);
+    transpose();
+    _rows += new_rows;
+}
+
   bool isSquare(){
       return rows==cols;
   }
