@@ -73,8 +73,8 @@ M1: Matrix
 |`.foreach(lambda_func)`|Higher-order function that takes a function as an argument and applies it to each element of the Matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Foreach/foreach.ino)|-|
 |`.clamp(min,max)`|clamp all matrix elements between min and max|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Norm/norm.ino)|-|
 |`.lerp(min,max)`||[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Lerp/lerp.ino)|-|
-|`.norm(min,max)`||[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Norm/norm.ino)|-|
-|`.map(a1,b1,a2,b2)`||[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Map/map.ino)|-|
+|`.norm(min,max)`|Normalize the values in a matrix to a range between 0 and 1|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Norm/norm.ino)|-|
+|`.map(a1,b1,a2,b2)`|Map the values of a matrix from one range to another.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Map/map.ino)|-|
 |`.count(n)`|||-|
 ## Testers
 |Methode|description|
