@@ -4,6 +4,6 @@ void setup()
 {
   Serial.begin(9600);
   Matrix<2, 3,double> m(arr);
-  m.norm(0,10);
+  m.norm(0,100);
   m.print();
 }
