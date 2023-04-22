@@ -68,8 +68,8 @@ M1: Matrix
 |`.slice(r0,c0,r1,c1)`|Extracts a sub-matrix from the original matrix,|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Slice/slice.ino)|-|
 |`.deleteRow(i)`|Remove a specific row from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/DeleteCol/deleteCol.ino)|-|
 |`.deleteCol(j)`|Remove a specific column from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/DeleteCol/deleteCol.ino)|-|
-|`.hstack(M)`|Stacks the original matrix vertically with the matrix M||The number of rows in both matrices should be the same,|
-|`.vstack(M)`|Stacks the original matrix horizontally with the matrix M||The number of cols in both matrices should be the same,|
+|`.vstack(M)`|Stacks the original matrix vertically with the matrix M|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Hsatck/hstack.ino)|The number of rows in both matrices should be the same,|
+|`.hstack(M)`|Stacks the original matrix horizontally with the matrix M|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Vstack/vstack.ino)|The number of cols in both matrices should be the same,|
 |`.foreach(lambda_func)`|Higher-order function that takes a function as an argument and applies it to each element of the Matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Foreach/foreach.ino)|-|
 |`.clamp(min,max)`|clamp all matrix elements between min and max|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Norm/norm.ino)|-|
 |`.lerp(min,max)`||[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Lerp/lerp.ino)|-|
