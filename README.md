@@ -63,18 +63,18 @@ M1: Matrix
 |-|--|-|--|
 |`.print()`|||-|
 |`.det()`|The determinant of the given matrix||should be a square matrix|
-|`.transpose()`|Transposes the given matrix |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Transformation/Transpose/transpose.ino)|-|
-|`.reshape(r,c)`|Reshapes the given matrix|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Reshape/reshape.ino)|The size of the new Matrix should be equal to the old one|
-|`.slice(r0,c0,r1,c1)`|Extracts a sub-matrix from the original matrix,|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Slice/slice.ino)|-|
-|`.deleteRow(i)`|Remove a specific row from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Delete Row /deleteRow.ino)|-|
-|`.deleteCol(j)`|Remove a specific column from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Delete Col/deleteCol.ino)|-|
+|`.transpose()`|Transposes the given matrix |![View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Transformation/Transpose/transpose.ino)|-|
+|`.reshape(r,c)`|Reshapes the given matrix|![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Reshape/reshape.ino)|The size of the new Matrix should be equal to the old one|
+|`.slice(r0,c0,r1,c1)`|Extracts a sub-matrix from the original matrix,|![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Slice/slice.ino)|-|
+|`.deleteRow(i)`|Remove a specific row from the original matrix.|![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Delete Row /deleteRow.ino)|-|
+|`.deleteCol(j)`|Remove a specific column from the original matrix.|![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Delete Col/deleteCol.ino)|-|
 |`.hstack(M)`|Stacks the original matrix vertically with the matrix M||The number of rows in both matrices should be the same,|
 |`.vstack(M)`|Stacks the original matrix horizontally with the matrix M||The number of cols in both matrices should be the same,|
-|`.foreach(lambda_func)`|Higher-order function that takes a function as an argument and applies it to each element of the Matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Foreach/foreach.ino)|-|
-|`.clamp(min,max)`|clamp all matrix elements between min and max|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Norm/norm.ino)|-|
-|`.lerp(min,max)`||[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Lerp/lerp.ino)|-|
-|`.norm(min,max)`||[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Norm/norm.ino)|-|
-|`.map(a1,b1,a2,b2)`||[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Map/map.ino)|-|
+|`.foreach(lambda_func)`|Higher-order function that takes a function as an argument and applies it to each element of the Matrix.|![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Foreach/foreach.ino)|-|
+|`.clamp(min,max)`|clamp all matrix elements between min and max|![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Norm/norm.ino)|-|
+|`.lerp(min,max)`||![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Lerp/lerp.ino)|-|
+|`.norm(min,max)`||![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Norm/norm.ino)|-|
+|`.map(a1,b1,a2,b2)`||![View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Iteration/Map/map.ino)|-|
 |`.count(n)`|||-|
 ## Testers
 |Methode|description|
