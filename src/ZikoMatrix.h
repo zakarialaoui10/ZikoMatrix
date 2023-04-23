@@ -140,6 +140,15 @@ void comatrice() {
         }
     }
 }
+void inv(){
+    if(!isSquare()){}
+    if(det()==0){}
+    double determinant=det();
+    comatrice();
+    transpose();
+    (*this)*=1/determinant;
+    
+}
 double det(){
     if(_rows==1)return data[0][0];
     if(_rows==2)return data[0][0]*data[1][1]-data[0][1]*data[1][0];
