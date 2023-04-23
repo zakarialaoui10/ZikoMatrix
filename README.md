@@ -64,6 +64,7 @@ M1: Matrix
 |`.print()`|||-|
 |`.det()`|The determinant of the given matrix|[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Determinant/det.ino)|should be a square matrix|
 |`.transpose()`|Transposes the given matrix |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Transformation/Transpose/transpose.ino)|-|
+|`.comatrice()`| |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Transformation/Comatrice/comatrice.ino)|-|
 |`.reshape(r,c)`|Reshapes the given matrix|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Reshape/reshape.ino)|The size of the new Matrix should be equal to the old one|
 |`.slice(r0,c0,r1,c1)`|Extracts a sub-matrix from the original matrix,|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/Slice/slice.ino)|-|
 |`.deleteRow(i)`|Remove a specific row from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/Transformation/DeleteCol/deleteCol.ino)|-|
