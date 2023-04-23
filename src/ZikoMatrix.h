@@ -25,6 +25,12 @@ template<typename T>
 T _map(T x,T a1,T b1,T a2,T b2){
     return _lerp(_norm(x,a1,b1),a2,b2);
 }
+template<typename T>
+T _pow(T x,int n){
+    T p=1;
+    for(int i=0;i<n;i++)p*=x;
+    return p;
+}
 template <int rows = 0, int cols = rows , typename T=int>
 class Matrix {
     public:
@@ -112,6 +118,27 @@ void deleteCol(size_t index){
         }
     }
     _cols--;
+}
+void comatrice() {
+    Matrix<rows, cols, T> temp = *this; // make a copy of the original matrix
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            Matrix<rows-1, cols-1, T> submatrix;
+            int x = 0, y = 0;
+            for (int r = 0; r < rows; r++) {
+                if (r == i) continue;
+                for (int c = 0; c < cols; c++) {
+                    if (c == j) continue;
+                    submatrix[x][y] = temp[r][c];
+                    y++;
+                }
+                x++;
+                y = 0;
+            }
+            int sign = ((i+j) % 2 == 0) ? 1 : -1;
+            (*this)[i][j] = sign * submatrix.det();
+        }
+    }
 }
 double det(){
     if(_rows==1)return data[0][0];
