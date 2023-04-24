@@ -1,6 +1,6 @@
 /*
   Author : Zakaria Elalaoui
-  https://github.com/zakarialaoui10/ZikoMatrix/
+  Github Repo : https://github.com/zakarialaoui10/ZikoMatrix/
 */
 #ifndef MATRIX_H
 #define MATRIX_H
@@ -9,32 +9,77 @@
 #else
 #include <iostream>
 #endif
+#include"utils.h"
+template <int rows, int cols=rows, typename T=int>
 class Matrix {
-    public:
-    int _rows=rows;
-    int _cols=cols;
-    T data[16][16]={};
-    public:
+public:
+    int _rows = rows;
+    int _cols = cols;
+    T** data;
+    
+public:
     Matrix() {
-        for (size_t i = 0; i < rows; i++) {
-            for (size_t j = 0; j < cols; j++) {
+        data = new T*[rows];
+        for (int i = 0; i < rows; i++) {
+            data[i] = new T[cols];
+            for (int j = 0; j < cols; j++) {
                 data[i][j] = 0;
             }
         }
     }
-    Matrix(T (*arr)[cols]) {
-        for (int i = 0; i < rows; i++)
-        for (int j = 0; j < cols; j++)
-        data[i][j] = arr[i][j];
-  }
-    Matrix<rows, cols , T>(const T (&arr)[rows * cols]) {
-        for (size_t i = 0; i < rows; i++)
-        for (size_t j = 0; j < cols; j++)
-        data[i][j] = arr[i * cols + j];
-  }
-  ~Matrix<rows,cols,T>() {
     
-  }
+    Matrix(T (*arr)[cols]) {
+        data = new T*[rows];
+        for (int i = 0; i < rows; i++) {
+            data[i] = new T[cols];
+            for (int j = 0; j < cols; j++) {
+                data[i][j] = arr[i][j];
+            }
+        }
+    }
+    
+    Matrix(const T (&arr)[rows * cols]) {
+        data = new T*[rows];
+        for (int i = 0; i < rows; i++) {
+            data[i] = new T[cols];
+            for (int j = 0; j < cols; j++) {
+                data[i][j] = arr[i * cols + j];
+            }
+        }
+    }
+     Matrix(const Matrix& other) {
+        data = new T*[rows];
+        for (int i = 0; i < rows; i++) {
+            data[i] = new T[cols];
+            for (int j = 0; j < cols; j++) {
+                data[i][j] = other.data[i][j];
+            }
+        }
+    }
+    Matrix& operator=(const Matrix& other) {
+        if (this != &other) {
+            for (int i = 0; i < rows; i++) {
+                delete[] data[i];
+            }
+            delete[] data;
+            
+            data = new T*[rows];
+            for (int i = 0; i < rows; i++) {
+                data[i] = new T[cols];
+                for (int j = 0; j < cols; j++) {
+                    data[i][j] = other.data[i][j];
+                }
+            }
+        }
+        return *this;
+    }
+    
+    ~Matrix() {
+        for (int i = 0; i < rows; i++) {
+            delete[] data[i];
+        }
+        delete[] data;
+    }
   Matrix<rows, cols , T> clone() const {
     Matrix< rows, cols , T > result = *this;
     return result;
@@ -102,17 +147,17 @@ class Matrix {
     }
     return Matrix<rows, cols , T>(arr);
   }
-void deleteRow(size_t index) {
-    for (size_t i = index+1; i < rows; i++) {
-        for (size_t j = 0; j < cols; j++) {
+void deleteRow(int index) {
+    for (int i = index+1; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
             data[i-1][j] = data[i][j];
         }
     }
     _rows--;
 }
-void deleteCol(size_t index){
-    for (size_t i = 0; i < rows; i++) {
-        for (size_t j = index+1; j < cols; j++) {
+void deleteCol(int index){
+    for (int i = 0; i < rows; i++) {
+        for (int j = index+1; j < cols; j++) {
             data[i][j-1] = data[i][j];
         }
     }
@@ -246,8 +291,8 @@ void slice(int r0,int c0, int r1, int c1) {
     }
     template <typename Func>
     void foreach(Func func) {
-        for (size_t i = 0; i < rows; i++) {
-            for (size_t j = 0; j < cols; j++)data[i][j] = func(data[i][j]);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++)data[i][j] = func(data[i][j]);
         }
     }
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
@@ -289,10 +334,10 @@ void slice(int r0,int c0, int r1, int c1) {
   template<int cols2>
   Matrix< rows, cols ,T > operator*(const Matrix<rows, cols2 , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
-    for (size_t i = 0; i < rows; i++) {
-        for (size_t j = 0; j < cols2; j++) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols2; j++) {
             result(i, j) = 0;
-            for (size_t k = 0; k < cols; k++) {
+            for (int k = 0; k < cols; k++) {
                 result(i, j) += data[i][k] * other(k, j);
             }
         }
@@ -354,24 +399,48 @@ void slice(int r0,int c0, int r1, int c1) {
     *this = *this % x;
     return *this;
   }
+  template<int cols2>
+  void hstack(const Matrix<rows, cols2, T>& other) {
+        T** new_data = new T*[rows];
+        for (int i = 0; i < rows; i++) {
+            new_data[i] = new T[cols + other._cols];
+            for (int j = 0; j < cols; j++) {
+                new_data[i][j] = data[i][j];
+            }
+            for (int j = 0; j < other._cols; j++) {
+                new_data[i][cols + j] = other.data[i][j];
+            }
+        }
+        
+        for (int i = 0; i < rows; i++) {
+            delete[] data[i];
+        }
+        delete[] data;
+        
+        data = new_data;
+        _cols += other._cols;
+    }
+  /*
   template<int new_cols>
     void hstack(const Matrix<rows, new_cols, T>& other) {
-        Matrix<rows, cols+new_cols, T> result;
+       Matrix<rows, cols+new_cols, T> result;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++)result.data[i][j] = data[i][j];
             for (int j = 0; j < new_cols; j++)result.data[i][j+cols] = other.data[i][j];
         }
+        _cols += new_cols;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols+new_cols; j++)
                 data[i][j] = result.data[i][j];
         }
-        _cols += new_cols;
-    }
-  template <typename Matrix, typename... Matrices>
+        
+    }*/
+/*  template <typename Matrix, typename... Matrices>
 void hstack(const Matrix& matrix, const Matrices&... matrices) {
     hstack(matrix);
     hstack(matrices...);
 }
+*/
  template<int new_rows>
 void vstack(Matrix<new_rows, cols, T>& other) {
     transpose();
