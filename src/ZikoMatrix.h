@@ -80,12 +80,23 @@ class Matrix {
     }
     return Matrix<rows, cols , T>(arr);
   }
-  static Matrix<rows, cols , T> Rands(T min=0,T max=1) {
+  static Matrix<rows, cols , int> Rands(T min=0,T max=10) {
     T arr[rows][cols] = {};
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
         #if defined(ARDUINO)
         arr[i][j] = random(min,max);
+        #endif
+      }
+    }
+    return Matrix<rows, cols , T>(arr);
+  }
+   static Matrix<rows, cols , int> Rands(int max=10) {
+    T arr[rows][cols] = {};
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        #if defined(ARDUINO)
+        arr[i][j] = random(max);
         #endif
       }
     }
