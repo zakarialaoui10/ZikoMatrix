@@ -36,7 +36,7 @@ class Matrix {
     public:
     int _rows=rows;
     int _cols=cols;
-    T data[rows][cols]={};
+    T data[128][128]={};
     public:
     Matrix() {
         for (int i = 0; i < rows; i++) {
