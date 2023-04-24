@@ -9,16 +9,15 @@
 #else
 #include <iostream>
 #endif
-template <int rows = 0, int cols = rows , typename T=int>
 class Matrix {
     public:
     int _rows=rows;
     int _cols=cols;
-    T data[128][128]={};
+    T data[16][16]={};
     public:
     Matrix() {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
+        for (size_t i = 0; i < rows; i++) {
+            for (size_t j = 0; j < cols; j++) {
                 data[i][j] = 0;
             }
         }
@@ -77,6 +76,17 @@ class Matrix {
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
         arr[i][j] = num;
+      }
+    }
+    return Matrix<rows, cols , T>(arr);
+  }
+  static Matrix<rows, cols , T> Rands(T min=0,T max=1) {
+    T arr[rows][cols] = {};
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        #if defined(ARDUINO)
+        arr[i][j] = random(min,max);
+        #endif
       }
     }
     return Matrix<rows, cols , T>(arr);
@@ -346,6 +356,11 @@ void slice(int r0,int c0, int r1, int c1) {
         }
         _cols += new_cols;
     }
+  template <typename Matrix, typename... Matrices>
+void hstack(const Matrix& matrix, const Matrices&... matrices) {
+    hstack(matrix);
+    hstack(matrices...);
+}
  template<int new_rows>
 void vstack(Matrix<new_rows, cols, T>& other) {
     transpose();
