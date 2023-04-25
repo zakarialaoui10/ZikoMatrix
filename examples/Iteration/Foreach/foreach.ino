@@ -2,7 +2,7 @@
 int arr[2][3] = {{1,2,3}, {4,5,6}};
 Matrix<2, 3,int> m(arr
 int multiply_by_two(int n) {
-    return n + 1;
+    return n * 1;
 }
 void setup() 
 {
