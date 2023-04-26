@@ -19,6 +19,7 @@
  insertRow ❌
  insertCol ❌
  rank ❌
+ adjugate ❌
 
  foreach ✅
  map ✅
