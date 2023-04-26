@@ -24,6 +24,10 @@
  lerp ✅
  norm ✅
  clamp ✅
+ round ❌
+ floor ❌
+ ceil ❌
+ sign ❌
 
  isId ✅
  isSquare ✅
