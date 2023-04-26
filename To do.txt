@@ -1,16 +1,16 @@
  
  reshape ✅
  transpose ✅
- det
- inv
- comatrice 
- slice
- hstack
- vstack
- deleteRow
- deleteCol 
- isId
- isSquare
- isSym
- isAntiSym
- isDiag
+ det ✅
+ inv ✅
+ comatrice ✅
+ slice ✅
+ hstack ✅
+ vstack ✅
+ deleteRow ✅
+ deleteCol ✅
+ isId ✅
+ isSquare ✅
+ isSym ✅
+ isAntiSym ✅
+ isDiag ✅
