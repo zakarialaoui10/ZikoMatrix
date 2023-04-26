@@ -38,6 +38,7 @@ M1: Matrix
 |*|M2:Matrix|`Matrix<r,c,type> M3=M1*M2;`|
 |*|a:Scalar|`Matrix<r,c,type> M3=M1*a;`|
 |/|a:Scalar|`Matrix<r,c,type> M3=M1/a;`|
+|=|a:Matrix|`Matrix<r,c,type> M3=M1;`|
 |%|a:Integer|`Matrix<r,c,type> M3=M1ùa;`|
 |+=|M2:Matrix|`M1+=M2;`|
 |+=|a:Scalar|`M1+=a;`|
