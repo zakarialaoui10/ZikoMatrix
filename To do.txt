@@ -16,6 +16,8 @@
  vstack ✅
  deleteRow ✅
  deleteCol ✅
+ insertRow ❌
+ insertCol ❌
 
  foreach ✅
  map ✅
@@ -28,3 +30,5 @@
  isSym ✅
  isAntiSym ✅
  isDiag ✅
+ isInv ❌
+ 
