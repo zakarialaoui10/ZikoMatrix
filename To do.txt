@@ -1,4 +1,11 @@
- 
+ print ✅
+
+ zeros ✅
+ ones ✅
+ nums ✅
+ rands ✅
+
+ clone ✅
  reshape ✅
  transpose ✅
  det ✅
@@ -9,6 +16,13 @@
  vstack ✅
  deleteRow ✅
  deleteCol ✅
+
+ foreach ✅
+ map ✅
+ lerp ✅
+ norm ✅
+ clamp ✅
+
  isId ✅
  isSquare ✅
  isSym ✅
