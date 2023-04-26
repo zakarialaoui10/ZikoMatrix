@@ -18,6 +18,7 @@
  deleteCol ✅
  insertRow ❌
  insertCol ❌
+ rank ❌
 
  foreach ✅
  map ✅
