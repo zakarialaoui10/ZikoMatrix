@@ -1,9 +1,11 @@
-Add
+ 
  reshape
  transpose
  slice
  hstack
  vstack
+ deleteRow
+ deleteCol 
  isId
  isSquare
  isSym
