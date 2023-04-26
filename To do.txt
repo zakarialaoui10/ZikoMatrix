@@ -1,6 +1,9 @@
  
- reshape
- transpose
+ reshape ✅
+ transpose ✅
+ det
+ inv
+ comatrice 
  slice
  hstack
  vstack
