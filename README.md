@@ -65,7 +65,7 @@ M1: Matrix
 |-|--|-|--|
 |`.clone()`|||-|
 |`.print()`|||-|
-|`.at(i,j)`|Acces and set elements||-|
+|`.at(i,j)`|Acces and set data||-|
 |`.det()`|The determinant of the given matrix|[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Determinant/det.ino)|should be a square matrix|
 |`.transpose()`|Transposes the given matrix |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Transformation/Transpose/transpose.ino)|-|
 |`.comatrice()`| |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Transformation/Comatrice/comatrice.ino)|-|
