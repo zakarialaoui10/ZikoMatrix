@@ -18,6 +18,7 @@
 |-|--|--|
 |1|`M[i][j]`|`M[i][j]=4`|
 |2|`M(i,j)`|`M(i,j)=4`|
+|2|`M.at(i,j)`|`M.at(i,j)=4`|
 ## Static Methodes 
 ``` C++
   int r=2,c=3;
