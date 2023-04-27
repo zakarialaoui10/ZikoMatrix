@@ -88,13 +88,13 @@ public:
     return data[i];
   }
 
-  T& operator()(int row, int col) {
-    return data[row][col];
+  T& operator()(int i, int j) {
+    return data[i][j];
   }
-  const T& operator()(int row, int col) const {
-    return data[row][col];
+  const T& operator()(int i, int j) const {
+    return data[i][j];
   }
-  T at(int i,int j){
+  T& at(int i,int j){
       if(i<0)i=_rows-i;
       if(j<0)j=_cols-j;
       return data[i][j];
