@@ -97,6 +97,7 @@ public:
   T& at(int i,int j){
       if(i<0)i=_rows+i;
       if(j<0)j=_cols+j;
+      //std::cout<<"i "<<i<<" j "<<j<<"\n";
       return data[i][j];
   }
    static Matrix<rows,cols>id(){
@@ -390,6 +391,11 @@ void slice(int r0,int c0, int r1, int c1) {
   }
   Matrix< rows, cols , T >& operator-=(T x) {
     *this = *this - x;
+    return *this;
+  }
+  template<int cols2>
+  Matrix< rows, cols , T >& operator*=(const Matrix< rows, cols2 , T >& other) {
+    *this = *this * other;
     return *this;
   }
   Matrix< rows, cols , T >& operator*=(T x) {
