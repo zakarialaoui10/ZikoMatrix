@@ -360,7 +360,9 @@ void slice(int r0,int c0, int r1, int c1) {
     return result;
   }
   Matrix< rows, cols ,T > operator/(T x) const {
-    Matrix< rows, cols , T > result = this->clone();
+    Matrix< rows, cols , T > result = clone();
+    std::cout<<" rows "<<rows<<"  cols "<<cols<<"\n";
+    std::cout<<"_rows "<<_rows<<" _cols "<<_cols<<"\n";
     for (int i = 0; i < rows; i++) {
       for (int j = 0; j < cols; j++) {
         result[i][j] /= x;
