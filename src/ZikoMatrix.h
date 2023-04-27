@@ -489,6 +489,22 @@ void vstack(Matrix<new_rows, cols, T>& other) {
       }
       return true;
   }
+  bool isZeros(){
+      for(int i=0;i<_rows;i++){
+          for(int j=0;j<_cols;j++){
+              if(data[i][j]!=0)return false;
+          }
+      }
+      return true;
+  }
+  bool isOnes(){
+      for(int i=0;i<_rows;i++){
+          for(int j=0;j<_cols;j++){
+              if(data[i][j]!=1)return false;
+          }
+      }
+      return true;
+  }
   bool isOrtho(){
       if(!isDiag())return false;
       return false; // To Do 
