@@ -95,8 +95,8 @@ public:
     return data[i][j];
   }
   T& at(int i,int j){
-      if(i<0)i=_rows-i;
-      if(j<0)j=_cols-j;
+      if(i<0)i=_rows+i;
+      if(j<0)j=_cols+j;
       return data[i][j];
   }
    static Matrix<rows,cols>id(){
