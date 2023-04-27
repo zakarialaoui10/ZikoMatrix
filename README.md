@@ -87,6 +87,8 @@ M1: Matrix
 |`isSym()`|determines whether a given matrix is symmetric or not|
 |`isAntiSym()`|determines whether a given matrix is antisymmetric or not|
 |`isInv()`|determines whether a given matrix is inversible or not|
+|`isZeros()`|determines whether a given matrix is filled by zeros or not|
+|`isOnes()`|determines whether a given matrix is filled by ones or not|
 
 # License 
  This projet is licensed under the terms of MIT License </br></br>![MIT](https://img.shields.io/github/license/zakarialaoui10/ZikoMatrix?color=rgb%2820%2C21%2C169%29)
