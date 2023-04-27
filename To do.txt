@@ -38,6 +38,6 @@
  isAntiSym ✅
  isDiag ✅
  isInv ✅
- isZeros ❌
- isOnes ❌
+ isZeros ✅
+ isOnes ✅
  
