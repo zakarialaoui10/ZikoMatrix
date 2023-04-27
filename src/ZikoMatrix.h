@@ -402,6 +402,11 @@ void slice(int r0,int c0, int r1, int c1) {
     *this = *this * x;
     return *this;
   }
+  Matrix< rows, cols , T >& operator^=(int n) {
+    Matrix< rows, cols , T > temp = this->clone();
+    for(int i=1;i<n;i++)*this = *this * temp;
+    return *this;
+  }
   Matrix< rows, cols , T >& operator/=(T x) {
     *this = *this / x;
     return *this;
