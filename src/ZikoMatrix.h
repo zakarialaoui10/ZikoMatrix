@@ -94,6 +94,11 @@ public:
   const T& operator()(int row, int col) const {
     return data[row][col];
   }
+  T at(int i,int j){
+      if(i<0)i=_rows-i;
+      if(j<0)j=_cols-j;
+      return data[i][j];
+  }
    static Matrix<rows,cols>id(){
        int arr[rows][rows] = {};
        for (int i = 0; i < rows; i++) {
