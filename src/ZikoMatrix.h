@@ -493,6 +493,9 @@ void vstack(Matrix<new_rows, cols, T>& other) {
       if(!isDiag())return false;
       return false; // To Do 
   }
+  bool isInv(){
+      return det()!=0;
+  }
   void clamp(T min,T max){
     for(int i=0;i<_rows;i++){
         for(int j=0;j<_cols;j++)
