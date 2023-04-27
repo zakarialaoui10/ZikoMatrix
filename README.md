@@ -68,14 +68,14 @@ M1: Matrix
 |`.at(i,j)`|Acces and set data||-|
 |`.det()`|The determinant of the given matrix|[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/2-0-Determinant)|should be a square matrix|
 |`.transpose()`|Transposes the given matrix |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/2-1-Transpose)|-|
-|`.comatrice()`| |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Transformation/Comatrice/comatrice.ino)|-|
+|`.comatrice()`| |[View](https://github.com/zakarialaoui10/ZikoMatrix/edit/main/examples/Comatrice/comatrice.ino)|-|
 |`.reshape(r,c)`|Reshapes the given matrix|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-5-Reshape)|The size of the new Matrix should be equal to the old one|
 |`.slice(r0,c0,r1,c1)`|Extracts a sub-matrix from the original matrix,|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-4-Slice)|-|
 |`.deleteRow(i)`|Remove a specific row from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-6-DeleteRow/)|-|
-|`.deleteCol(j)`|Remove a specific column from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-7-DeleteCol/|-|
-|`.hstack(M)`|Stacks the original matrix horizontally with the matrix M|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-8-Hstak)|The number of cols in both matrices should be the same,|
-|`.vstack(M)`|Stacks the original matrix vertically with the matrix M|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-9-Hsatck/)|The number of rows in both matrices should be the same,|
-|`.foreach(lambda_func)`|Higher-order function that takes a function as an argument and applies it to each element of the Matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-0-Foreach)|-|
+|`.deleteCol(j)`|Remove a specific column from the original matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-7-DeleteCol/)|-|
+|`.hstack(M)`|Stacks the original matrix horizontally with the matrix M|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-8-Hstack)|The number of cols in both matrices should be the same,|
+|`.vstack(M)`|Stacks the original matrix vertically with the matrix M|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/2-9-Vstack/)|The number of rows in both matrices should be the same,|
+|`.foreach(lambda_func)`|Higher-order function that takes a function as an argument and applies it to each element of the Matrix.|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/3-0-Foreach)|-|
 |`.clamp(min,max)`|clamp all matrix elements between min and max|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/3-3-Norm)|-|
 |`.lerp(min,max)`||[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/3-4-Lerp)|-|
 |`.norm(min,max)`|Normalize the values in a matrix to a range between 0 and 1|[View](https://github.com/zakarialaoui10/ZikoMatrix/blob/main/examples/3-3-Norm)|-|
