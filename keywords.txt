@@ -4,7 +4,10 @@ Ones KEYWORD3
 Nums KEYWORD3
 Id KEYWORD3
 print KEYWORD2
+det KEYWORD2
 transpose KEYWORD2
+inv KEYWORD2
+comatrice KEYWORD2
 reshape KEYWORD2
 slice KEYWORD2
 hstack KEYWORD2
