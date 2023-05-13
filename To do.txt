@@ -20,7 +20,7 @@
  insertCol ❌
  rank ❌
  adjugate ❌
- at ❌
+ at ✅
 
  foreach ✅
  map ✅
