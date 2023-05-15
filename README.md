@@ -10,7 +10,7 @@
  Matrix<5,5,int> // A 5x5 Matrix filled by zeros
 ```
 ## Print to the terminal 
-``` C++
+``` C++ 
   M1.print();
 ```
 ## Acces And Set Data
