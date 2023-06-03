@@ -1,6 +1,5 @@
  print ✅ 
 
-
  zeros ✅
  ones ✅
  nums ✅
