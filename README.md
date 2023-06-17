@@ -1,6 +1,6 @@
 ## Get Started  
 ``` C++ 
- // 1 
+ // 1  
  int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
  Matrix<2,3,int> M1(arr);
  // 2
