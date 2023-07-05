@@ -1,7 +1,7 @@
  print ✅ 
  zeros ✅
  ones ✅
- nums ✅ 
+ nums ✅  
  rands ✅
 
  clone ✅
