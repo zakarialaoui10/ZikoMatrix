@@ -153,23 +153,25 @@ public:
     }
     return Matrix<rows, cols , T>(arr);
   }
-void deleteRow(int index) {
+Matrix<rows, cols, T>& deleteRow(int index) {
     for (int i = index+1; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             data[i-1][j] = data[i][j];
         }
     }
     _rows--;
+    return *this;
 }
-void deleteCol(int index){
+Matrix<rows, cols, T>& deleteCol(int index){
     for (int i = 0; i < rows; i++) {
         for (int j = index+1; j < cols; j++) {
             data[i][j-1] = data[i][j];
         }
     }
     _cols--;
+    return this;
 }
-void comatrice() {
+Matrix<rows, cols, T>& comatrice() {
     Matrix<rows, cols, T> temp = *this; // make a copy of the original matrix
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -189,6 +191,7 @@ void comatrice() {
             (*this)[i][j] = sign * submatrix.det();
         }
     }
+    return *this;
 }
 void inv(){
     if(!isSquare()){}
