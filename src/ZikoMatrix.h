@@ -534,7 +534,7 @@ Matrix<rows + new_rows, cols, T> vstack(const Matrix<new_rows, cols, T>& other) 
     return c;
   }
    
-  void print() const {
+  Matrix<rows, cols, T>& print(){
       #if defined(ARDUINO)
       for (int i = 0; i < _rows; i++) {
           for (int j = 0; j < _cols; j++) {
@@ -552,6 +552,7 @@ Matrix<rows + new_rows, cols, T> vstack(const Matrix<new_rows, cols, T>& other) 
       }
       std::cout<<"\n";
       #endif
+      return *this;
   }
 };
 
