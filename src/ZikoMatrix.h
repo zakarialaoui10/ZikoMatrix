@@ -193,14 +193,14 @@ Matrix<rows, cols, T>& comatrice() {
     }
     return *this;
 }
-void inv(){
+Matrix<rows, cols, T>& inv(){
     if(!isSquare()){}
     if(det()==0){}
     double determinant=det();
     comatrice();
     transpose();
     (*this)*=1/determinant;
-    
+    return *this;
 }
 double det(){
     if(_rows==1)return data[0][0];
@@ -424,7 +424,7 @@ void slice(int r0,int c0, int r1, int c1) {
     return *this;
   }
   template<int new_cols>
-Matrix<rows, cols + new_cols, T> hstack(const Matrix<rows, new_cols, T>& other) {
+  Matrix<rows, cols + new_cols, T> hstack(const Matrix<rows, new_cols, T>& other) {
     Matrix<rows, cols + new_cols, T> result;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) result.data[i][j] = data[i][j];
@@ -432,6 +432,16 @@ Matrix<rows, cols + new_cols, T> hstack(const Matrix<rows, new_cols, T>& other) 
     }
     return result;
 }
+ template<int new_cols>
+Matrix<rows, cols + new_cols, T> hqueue(const Matrix<rows, new_cols, T>& other) {
+    Matrix<rows, cols + new_cols, T> result;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < new_cols; j++)result.data[i][j] = other.data[i][j];
+        for (int j = 0; j < cols; j++)result.data[i][j + new_cols] = data[i][j];
+    }
+    return result;
+}
+
 
 template<int new_rows>
 Matrix<rows + new_rows, cols, T> vstack(const Matrix<new_rows, cols, T>& other) {
