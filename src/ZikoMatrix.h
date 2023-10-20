@@ -215,33 +215,35 @@ double det(){
     }
     return determinant;
 }
-void reshape(int new_rows, int new_cols) {
-        if (new_rows * new_cols != _rows * _cols){
-          #if defined(ARDUINO)
-          Serial.println("Invalid size");
-          return;
-          #else
-          throw std::out_of_range("Invalid size");
-          #endif  
+Matrix<rows, cols, T>& reshape(int new_rows, int new_cols) {
+    if (new_rows * new_cols != _rows * _cols) {
+#if defined(ARDUINO)
+        Serial.println("Invalid size");
+#else
+        throw std::out_of_range("Invalid size");
+#endif
+        return *this;  // Return *this to allow chaining
+    }
+    // Copy data to temporary array
+    T temp[_rows][_cols];
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _cols; j++) {
+            temp[i][j] = data[i][j];
         }
-        // Copy data to temporary array
-        T temp[_rows][_cols];
-        for (int i = 0; i < _rows; i++) {
-            for (int j = 0; j < _cols; j++) {
-                temp[i][j] = data[i][j];
-            }
+    }
+    // Fill the new matrix with data from the temporary array
+    int count = 0;
+    for (int i = 0; i < new_rows; i++) {
+        for (int j = 0; j < new_cols; j++) {
+            data[i][j] = temp[count / _cols][count % _cols];
+            count++;
         }
-        // Fill new matrix with data from temporary array
-        int count = 0;
-        for (int i = 0; i < new_rows; i++) {
-            for (int j = 0; j < new_cols; j++) {
-                data[i][j] = temp[count / _cols][count % _cols];
-                count++;
-            }
-        }
-        _rows = new_rows;
-        _cols = new_cols;
-    }  
+    }
+    _rows = new_rows;
+    _cols = new_cols;
+    return *this;  // Return *this to allow chaining
+}
+
   void transpose() {
       _cols=rows;
       _rows=cols;
