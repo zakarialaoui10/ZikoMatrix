@@ -222,7 +222,7 @@ Matrix<rows, cols, T>& reshape(int new_rows, int new_cols) {
 #else
         throw std::out_of_range("Invalid size");
 #endif
-        return *this;  // Return *this to allow chaining
+        return *this;  
     }
     // Copy data to temporary array
     T temp[_rows][_cols];
@@ -298,10 +298,11 @@ void slice(int r0,int c0, int r1, int c1) {
         _cols = new_cols;
     }
     template <typename Func>
-    void foreach(Func func) {
+    Matrix<rows, cols, T>& foreach(Func func) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++)data[i][j] = func(data[i][j]);
         }
+        return *this;
     }
   Matrix< rows, cols ,T > operator+(const Matrix<rows, cols , T >& other) const {
     Matrix< rows, cols , T > result = this->clone();
@@ -503,30 +504,38 @@ Matrix<rows + new_rows, cols, T> vstack(const Matrix<new_rows, cols, T>& other) 
   bool isInv(){
       return det()!=0;
   }
-  void clamp(T min,T max){
-    for(int i=0;i<_rows;i++){
-        for(int j=0;j<_cols;j++)
-        data[i][j]=_clamp(data[i][j],min,max);
+  Matrix<rows, cols, T>& clamp(T min, T max) {
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _cols; j++) {
+            data[i][j] = _clamp(data[i][j], min, max);
+        }
     }
-  }
-  void lerp(T min,T max){
-    for(int i=0;i<_rows;i++){
-        for(int j=0;j<_cols;j++)
-        data[i][j]=_lerp(data[i][j],min,max);
+    return *this;  
+}
+  Matrix<rows, cols, T>& lerp(T min, T max) {
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _cols; j++) {
+            data[i][j] = _lerp(data[i][j], min, max);
+        }
     }
-  }
-  void norm(T min,T max){
-    for(int i=0;i<_rows;i++){
-        for(int j=0;j<_cols;j++)
-        data[i][j]=_norm(data[i][j],min,max);
+    return *this;  
+}
+  Matrix<rows, cols, T>& norm(T min, T max) {
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _cols; j++) {
+            data[i][j] = _norm(data[i][j], min, max);
+        }
     }
-  }
-  void map(T a1,T b1,T a2,T b2){
-    for(int i=0;i<_rows;i++){
-        for(int j=0;j<_cols;j++)
-        data[i][j]=_map(data[i][j],a1,b1,a2,b2);
+    return *this;  
+}
+  Matrix<rows, cols, T>& map(T a1, T b1, T a2, T b2) {
+    for (int i = 0; i < _rows; i++) {
+        for (int j = 0; j < _cols; j++) {
+            data[i][j] = _map(data[i][j], a1, b1, a2, b2);
+        }
     }
-  }
+    return *this;  // Return *this to allow chaining
+}
   int count(T n){
       int c=0;
       for(int i=0;i<_rows;i++){
