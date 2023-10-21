@@ -220,11 +220,11 @@ double det(){
 }
 Matrix<rows, cols, T>& reshape(int new_rows, int new_cols) {
     if (new_rows * new_cols != _rows * _cols) {
-#if defined(ARDUINO)
+        #if defined(ARDUINO)
         Serial.println("Invalid size");
-#else
+        #else
         throw std::out_of_range("Invalid size");
-#endif
+        #endif
         return *this;  
     }
     // Copy data to temporary array
@@ -451,6 +451,19 @@ Matrix<rows + new_rows, cols, T> vstack(const Matrix<new_rows, cols, T>& other) 
     }
     for (int i = rows; i < rows + new_rows; i++) {
         for (int j = 0; j < cols; j++) result.data[i][j] = other.data[i - rows][j];
+    }
+    _rows=rows+new_rows;
+    return result;
+}
+
+template<int new_rows>
+Matrix<rows + new_rows, cols, T> vqueue(const Matrix<new_rows, cols, T>& other) {
+    Matrix<rows + new_rows, cols, T> result;
+    for (int i = 0; i < new_rows; i++) {
+        for (int j = 0; j < cols; j++) result.data[i][j] = other.data[i][j];
+    }
+    for (int i = new_rows; i < rows + new_rows; i++) {
+        for (int j = 0; j < cols; j++) result.data[i][j] = data[i - rows][j];
     }
     return result;
 }
