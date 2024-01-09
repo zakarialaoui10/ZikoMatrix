@@ -41,6 +41,7 @@
  isOnes ✅
  
  Advanced
- doc
+ doc 
+ ex 
 
  
