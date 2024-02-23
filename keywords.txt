@@ -22,4 +22,3 @@ isSym KEYWORD2
 isAntiSym KEYWORD2
 isZeros KEYWORD2
 isOnes KEYWORD2
-
