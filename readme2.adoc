@@ -1,3 +1,10 @@
-[#goals]
-* Goal 1
-* Goal 2
+= My Document
+:stylesheet: styles.css
+
+== Section 1
+
+This is some content in section 1.
+
+== Section 2
+
+This is some content in section 2.
