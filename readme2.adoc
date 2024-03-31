@@ -1,2 +1,3 @@
-= Doc
-video::RvRhUHTV_8k[youtube]
+[#goals]
+* Goal 1
+* Goal 2
