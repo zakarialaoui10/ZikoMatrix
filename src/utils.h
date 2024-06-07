@@ -20,3 +20,4 @@ T _pow(T x,int n){
     for(int i=0;i<n;i++)p*=x;
     return p;
 }
+ 
